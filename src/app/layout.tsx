@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk, Space_Mono } from 'next/font/google';
+import { config } from '../config';
 import './globals.css';
 
 const spaceMono = Space_Mono({
@@ -15,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'shonie.dev',
+  title: config.siteName,
   description: 'Oleksandr Starnikov',
 };
 
@@ -34,4 +35,3 @@ export default function RootLayout({
     </html>
   );
 }
-
