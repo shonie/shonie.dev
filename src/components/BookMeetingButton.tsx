@@ -1,11 +1,13 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { PopupModal } from 'react-calendly';
 import { Button } from './Button';
 
 export const BookMeetingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
 
   const handleModalOpen = useCallback(() => {
     setIsOpen(true);
@@ -15,17 +17,23 @@ export const BookMeetingButton = () => {
     setIsOpen(false);
   }, []);
 
+  useEffect(() => {
+    setRootElement(window.document.body);
+  }, []);
+
   return (
     <>
       <Button color="primary" onClick={handleModalOpen}>
         Book a meeting
       </Button>
-      <PopupModal
-        url="https://calendly.com/shonie"
-        onModalClose={handleModalClose}
-        open={isOpen}
-        rootElement={window.document.body}
-      />
+      {rootElement && (
+        <PopupModal
+          url="https://calendly.com/shonie"
+          onModalClose={handleModalClose}
+          open={isOpen}
+          rootElement={rootElement}
+        />
+      )}
     </>
   );
 };

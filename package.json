@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "preserve": "npm run build",
-    "serve": "serve -l 4000 .out",
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
