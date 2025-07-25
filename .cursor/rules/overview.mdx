@@ -1,7 +1,7 @@
 ---
 description: Overview of the project
-globs:
-alwaysApply: false
+globs: src/*
+alwaysApply: true
 ---
 
 1. Project overview
@@ -17,28 +17,19 @@ alwaysApply: false
 
 2. Project structure
 
-The main application source code lives in the following folders. Purpose of the folder may be given in parantheses folliowing the folder name.
+The main application source code lives in the following folders. Purpose of the folder is given in parantheses folliowing the folder name.
 
 - public
-  - data (external ETL pipeline will regularly post JSON files to this folder so that statically built JS can refer to them without API calls)
-    .keep (file to keep the folder)
+  - data (directory for static JSON files)
+    - dev-stats (external ETL pipeline will regularly post JSON files to this folder so that the app can get data without API calls)
   - assets
-    - images - folder for high-quality images for the site
-    - icons - folder for svg icons
+    - images (folder for high-quality images for the site)
+    - icons (folder for SVG icons)
 - src
-  - app
-    - components (Reusable React components eg. Button, Header, etc)
-    - types (folder for common TypeScript typings)
-
-Shared UI components live in src/app/components/
-
-Utility and helper functions are in lib/, utils/, or hooks/
-
-Type definitions are in types/
-
-Static assets live in public/
-
-Routing:
+  - app (Next.js app)
+  - components (reusable React components eg. Button, Header, etc)
+  - lambdas (backend lambdas)
+  - types (folder for common TypeScript typings)
 
 3. Conventions
    3.1. All files should be named in kebab-case

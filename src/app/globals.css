@@ -16,30 +16,30 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-primary-100: #adebb3;
-  --color-primary-200: #8dc192;
-  --color-primary-250: #8dc192;
-  --color-primary-300: #6f9873;
-  --color-primary-400: #527255;
-  --color-primary-500: #374e39;
-  --color-primary-600: #1e2c1f;
-  --color-primary-700: #0b130b;
+  --color-primary-100: #cbffb6;
+  --color-primary-200: #78e400;
+  --color-primary-300: #60b900;
+  --color-primary-400: #498f00;
+  --color-primary-500: #336700;
+  --color-primary-600: #1f4200;
+  --color-primary-700: #0c2100;
 
-  --color-secondary-100: #ecdef7;
-  --color-secondary-200: #d2adeb;
-  --color-secondary-300: #ba7adf;
-  --color-secondary-400: #9e4ac6;
-  --color-secondary-500: #6f328c;
-  --color-secondary-600: #431c56;
-  --color-secondary-700: #1c0826;
+  --color-secondary-100: #ffe1e9;
+  --color-secondary-200: #ffa8c2;
+  --color-secondary-250: #ff629c;
+  --color-secondary-300: #e40078;
+  --color-secondary-400: #e40078;
+  --color-secondary-500: #a40054;
+  --color-secondary-600: #680033;
+  --color-secondary-700: #310015;
 
-  --color-tertiary-100: #f7e1e9;
-  --color-tertiary-200: #ebadc6;
-  --color-tertiary-300: #e174a6;
-  --color-tertiary-400: #bf4783;
-  --color-tertiary-500: #88305c;
-  --color-tertiary-600: #541b38;
-  --color-tertiary-700: #250816;
+  --color-tertiary-100: #e6ecff;
+  --color-tertiary-200: #abc4ff;
+  --color-tertiary-300: #649dff;
+  --color-tertiary-400: #0078e4;
+  --color-tertiary-500: #0055a5;
+  --color-tertiary-600: #00356a;
+  --color-tertiary-700: #001735;
 
   --color-grey-100: #d6ded7;
   --color-grey-200: #afb6b0;
@@ -49,10 +49,15 @@
   --color-grey-600: #272927;
   --color-grey-700: #101110;
 
-  --color-primary: var(--color-primary-100);
-  --color-secondary: var(--color-secondary-200);
-  --color-tertiary: var(--color-tertiary-200);
+  --color-primary: var(--color-primary-400);
+  --color-on-primary: var(--color-white);
+  --color-secondary: var(--color-secondary-400);
+  --color-on-secondary: var(--color-white);
+  --color-tertiary: var(--color-tertiary-400);
+  --color-on-tertiary: var(--color-white);
   --color-grey: var(--color-grey-400);
+  --color-surface-variant: var(--color-primary-100);
+  --color-on-surface-variant: var(--color-primary-400);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -65,5 +70,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  letter-spacing: 1.1px;
 }

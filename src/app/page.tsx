@@ -1,10 +1,3 @@
-import { Header } from './components/header';
-
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <div>Hello, world! My name is Oleksandr Starnikov</div>
-    </>
-  );
+  return <h1 className="text-[56px] text-bold text-secondary"></h1>;
 }

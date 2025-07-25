@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Space_Mono } from 'next/font/google';
-import { config } from '../config';
+import { Roboto, Kanit } from 'next/font/google';
+import { Header } from '@/components/Header';
+import { config } from '../app-config';
 import './globals.css';
 
-const spaceMono = Space_Mono({
-  variable: '--font-geist-sans',
+const roboto = Roboto({
+  variable: '--font-roboto',
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700', '900'],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: '--font-geist-mono',
+const kanit = Kanit({
+  variable: '--font-kanit',
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700', '900'],
 });
 
 export const metadata: Metadata = {
@@ -27,9 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
-      >
+      <body className={`${roboto.variable} ${kanit.variable} antialiased`}>
+        <Header />
         {children}
       </body>
     </html>
