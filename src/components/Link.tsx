@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import clsx from 'clsx';
+import { Link as RadixLink } from '@radix-ui/themes';
 
 interface LinkProps {
   href: string;
@@ -7,17 +7,15 @@ interface LinkProps {
   active?: boolean;
 }
 
-export const Link = ({ href, children, active, ...rest }: LinkProps) => {
+export const Link = ({ href, children, active }: LinkProps) => {
   return (
-    <NextLink
-      className={clsx('text-primary hover:underline hover:text-secondary', {
-        'text-secondary': active,
-        underline: active,
-      })}
-      href={href}
-      {...rest}
+    <RadixLink
+      color="mint"
+      weight="medium"
+      underline={active ? 'always' : 'none'}
+      asChild
     >
-      {children}
-    </NextLink>
+      <NextLink href={href}>{children}</NextLink>
+    </RadixLink>
   );
 };

@@ -1,3 +1,11 @@
+import { Text } from '@radix-ui/themes';
+
 export default function Home() {
-  return <h1 className="text-[56px] text-bold text-secondary"></h1>;
+  return (
+    <Text
+      size="9"
+      weight="bold"
+      style={{ color: 'var(--color-secondary)' }}
+    ></Text>
+  );
 }

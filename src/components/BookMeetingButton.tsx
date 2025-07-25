@@ -1,8 +1,9 @@
 'use client';
 
 import { useCallback, useState, useEffect } from 'react';
+import { Button } from '@radix-ui/themes';
+import { ChatBubbleIcon } from '@radix-ui/react-icons';
 import { PopupModal } from 'react-calendly';
-import { Button } from './Button';
 
 export const BookMeetingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,8 @@ export const BookMeetingButton = () => {
 
   return (
     <>
-      <Button color="primary" onClick={handleModalOpen}>
+      <Button size="3" color="mint" radius="small" onClick={handleModalOpen}>
+        <ChatBubbleIcon />
         Book a meeting
       </Button>
       {rootElement && (

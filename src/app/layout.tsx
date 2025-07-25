@@ -1,7 +1,9 @@
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
 import type { Metadata } from 'next';
 import { Roboto, Kanit } from 'next/font/google';
 import { Header } from '@/components/Header';
-import { config } from '../app-config';
+import { appConfig } from '@/app-config';
 import './globals.css';
 
 const roboto = Roboto({
@@ -17,7 +19,7 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: config.siteName,
+  title: appConfig.siteName,
   description: 'Oleksandr Starnikov',
 };
 
@@ -29,8 +31,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${kanit.variable} antialiased`}>
-        <Header />
-        {children}
+        <Theme
+          accentColor="mint"
+          grayColor="gray"
+          panelBackground="solid"
+          scaling="100%"
+          radius="full"
+        >
+          <Header />
+          {children}
+        </Theme>
       </body>
     </html>
   );

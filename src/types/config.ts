@@ -1,4 +1,4 @@
-export interface Config {
+export interface AppConfig {
   siteName: string;
   contactEmail: string;
   profileGithubUrl: string;

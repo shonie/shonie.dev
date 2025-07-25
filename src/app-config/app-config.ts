@@ -1,6 +1,6 @@
-import { Config } from './types/config';
+import { AppConfig } from '@/types/config';
 
-export const config: Config = {
+export const appConfig: AppConfig = {
   siteName: 'Shonie.dev',
   contactEmail: 'contact@shonie.dev',
   profileGithubUrl: 'https://github.com/shonie',
