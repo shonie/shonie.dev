@@ -1,10 +1,10 @@
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
-import type { Metadata } from 'next';
+import type { AppProps } from 'next/app';
 import { Roboto, Kanit } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 import { Header } from '@/components/Header';
-import { appConfig } from '@/app-config';
-import './globals.css';
+import '../styles/globals.css';
 
 const roboto = Roboto({
   variable: '--font-roboto',
@@ -18,30 +18,22 @@ const kanit = Kanit({
   weight: ['400', '500', '600', '700', '900'],
 });
 
-export const metadata: Metadata = {
-  title: appConfig.siteName,
-  description: 'Oleksandr Starnikov',
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <html lang="en">
-      <body className={`${roboto.variable} ${kanit.variable} antialiased`}>
+    <div className={`${roboto.variable} ${kanit.variable} antialiased`}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Theme
           accentColor="mint"
           grayColor="gray"
           panelBackground="solid"
           scaling="100%"
           radius="full"
+          hasBackground={false}
         >
           <Header />
-          {children}
+          <Component {...pageProps} />
         </Theme>
-      </body>
-    </html>
+      </ThemeProvider>
+    </div>
   );
 }

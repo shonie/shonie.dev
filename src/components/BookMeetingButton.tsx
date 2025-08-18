@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useState, useEffect } from 'react';
 import { Button } from '@radix-ui/themes';
 import { ChatBubbleIcon } from '@radix-ui/react-icons';
@@ -24,7 +22,13 @@ export const BookMeetingButton = () => {
 
   return (
     <>
-      <Button size="3" color="mint" radius="small" onClick={handleModalOpen}>
+      <Button
+        size="3"
+        color="mint"
+        radius="small"
+        onClick={handleModalOpen}
+        className="hover:cursor-pointer"
+      >
         <ChatBubbleIcon />
         Book a meeting
       </Button>

@@ -1,20 +1,10 @@
 @import 'tailwindcss';
 
 :root {
+  --container-max-width: 1380px;
+
   --background: #ffffff;
   --foreground: #171717;
-}
-
-.dark {
-  --color-bg: #111827;
-  --color-fg: #ffffff;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 
   --color-primary-100: #cbffb6;
   --color-primary-200: #78e400;
@@ -50,14 +40,19 @@
   --color-grey-700: #101110;
 
   --color-primary: var(--color-primary-400);
-  --color-on-primary: var(--color-white);
+  --color-on-primary: #ffffff;
   --color-secondary: var(--color-secondary-400);
-  --color-on-secondary: var(--color-white);
+  --color-on-secondary: #ffffff;
   --color-tertiary: var(--color-tertiary-400);
-  --color-on-tertiary: var(--color-white);
+  --color-on-tertiary: #ffffff;
   --color-grey: var(--color-grey-400);
   --color-surface-variant: var(--color-primary-100);
   --color-on-surface-variant: var(--color-primary-400);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,12 +62,27 @@
   }
 }
 
+html,
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Roboto, Arial, Helvetica, sans-serif;
+  letter-spacing: 1.1px;
 }
 
 .radix-themes {
   --cursor-button: pointer;
+  --cursor-checkbox: pointer;
+  --cursor-disabled: default;
+  --cursor-link: pointer;
+  --cursor-menu-item: pointer;
+  --cursor-radio: pointer;
+  --cursor-slider-thumb: grab;
+  --cursor-slider-thumb-active: grabbing;
+  --cursor-switch: pointer;
 }
