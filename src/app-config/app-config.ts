@@ -21,6 +21,7 @@ export const appConfig: AppConfig = {
       { name: 'MySQL', years: 'Expert' },
       { name: 'ETL Pipelines', years: 'Advanced' },
     ],
+    careerStart: 2016,
     databases: [
       'PostgreSQL',
       'MySQL',

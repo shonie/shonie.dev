@@ -13,6 +13,7 @@ export interface Profile {
   };
   certifications: string[];
   databases: string[];
+  careerStart: number;
 }
 
 export interface AppConfig {

@@ -8,15 +8,17 @@ interface SectionHeadingProps {
 export const SectionHeading = ({
   children,
   className = '',
+  ...rest
 }: SectionHeadingProps) => {
   return (
     <Heading
       size={{
-        initial: '4',
+        initial: '7',
         md: '8',
       }}
       mb="5"
       as="h1"
+      {...rest}
       className={`text-center ${className}`}
     >
       {children}

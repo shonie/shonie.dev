@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { Card, Box, Flex, Text, Strong } from '@radix-ui/themes';
+import { Card, Box, Text, Grid } from '@radix-ui/themes';
+import Image from 'next/image';
 import { appConfig } from '@/app-config';
 import { BookMeetingButton } from '@/components/BookMeetingButton';
 import * as Icons from '@radix-ui/react-icons';
@@ -11,15 +12,15 @@ import { SectionHeading } from '@/components/SectionHeading';
 
 const badges = [
   {
-    name: 'Cloud architecture',
+    name: 'Cloud architecture & infrastructure scaling',
     icon: Icons.AngleIcon,
   },
   {
-    name: 'Team leadership',
+    name: 'Team leadership & mentoring',
     icon: Icons.PersonIcon,
   },
   {
-    name: 'Full-stack development',
+    name: 'Full-stack application development',
     icon: Icons.LaptopIcon,
   },
   {
@@ -27,16 +28,16 @@ const badges = [
     icon: Icons.MagicWandIcon,
   },
   {
-    name: 'Accurate data engineering',
+    name: 'Data engineering & visualization',
     icon: Icons.ArchiveIcon,
   },
   {
-    name: 'Beautiful data visualisation',
-    icon: Icons.BarChartIcon,
+    name: 'Automation & system integration',
+    icon: Icons.Share1Icon,
   },
   {
-    name: 'Automation and integration',
-    icon: Icons.Share1Icon,
+    name: 'Performance troubleshooting & optimization',
+    icon: Icons.Crosshair1Icon,
   },
 ];
 
@@ -52,30 +53,113 @@ export default function Home() {
       </Head>
       <Container className="flex-col snap-y snap-mandatory h-screen m-0 overflow-y-scroll scroll-smooth [scroll-snap-type:y_mandatory]">
         <Section>
-          <SectionHeading>
-            Cloud architecture and full-stack development
-          </SectionHeading>
-          <Text
-            size={{
-              initial: '3',
-              md: '4',
+          <Grid
+            columns={{
+              initial: '1',
+              sm: '[col1] 1fr [col2] 1fr [col3] 2fr [end]',
             }}
-            mb="7"
-            as="p"
-            className="p-2 text-center"
+            rows={{
+              initial: '1',
+              sm: '[row1] 1fr [row2] 3fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [end]',
+            }}
+            style={{
+              columnGap: '24px',
+              rowGap: '0px',
+            }}
+            align="center"
+            width="auto"
+            p={{
+              initial: '25% 10% 25% 10%',
+              md: '25% 0% 25% 0%',
+              // md: '0',
+            }}
+            mb="4"
           >
-            Welcome to <Strong>Shonie.dev</Strong>. I am providing end-to-end
-            software solutions contractually across the globe. In particular I
-            can help you with:
-          </Text>
-          <Flex gap="3" justify="center" className="flex flex-wrap mb-10">
+            <Box
+              asChild
+              style={{
+                justifySelf: 'start',
+                alignSelf: 'start',
+                gridColumn: '1 / span 2',
+              }}
+              gridArea="heading"
+              gridColumn={{ initial: 'span 1', sm: '1 / span 2' }}
+              gridRow={{ initial: 'span 1', sm: '1 / span 1' }}
+            >
+              <SectionHeading className="text-left mb-0">
+                Oleksandr (Shonie) Starnikov
+              </SectionHeading>
+            </Box>
+
+            <Box
+              asChild
+              gridArea="text"
+              gridColumn={{ initial: 'span 1', sm: '1 / span 2' }}
+              gridRow={{ initial: 'span 1', sm: '2 / span 2' }}
+              style={{
+                alignSelf: 'start',
+              }}
+            >
+              <Text
+                size={{
+                  initial: '4',
+                  md: '4',
+                }}
+                mb="7"
+                as="p"
+                className="text-left"
+              >
+                I am a cloud architect and full-stack developer with 9 years of
+                hands-on experience in designing, building, and scaling modern
+                applications. I specialize in creating reliable, maintainable,
+                and future-proof systems that bridge business needs with
+                technical excellence. My background covers both cloud
+                infrastructure and product development, which means I can take
+                ownership of projects from architecture through implementation
+                and delivery. If interested, I can help your project with the
+                following:
+              </Text>
+            </Box>
+
             {badges.map((badge, index) => (
-              <Badge key={`badge-${badge.name}-${index}`}>
-                <badge.icon className="w-4 h-4 mr-2" />
-                {badge.name}
-              </Badge>
+              <Box
+                gridArea="badge"
+                gridRow={{
+                  initial: 'span 1',
+                  sm: `${Math.ceil((index + 1) / 2) + 2} / span 1`,
+                }}
+                gridColumn={{
+                  initial: 'span 1',
+                  sm: `${(index % 2) + 1} / span 1`,
+                }}
+                key={`badge-${badge.name}-${index}`}
+              >
+                <Badge>
+                  <badge.icon className="w-4 h-4 mr-2" />
+                  {badge.name}
+                </Badge>
+              </Box>
             ))}
-          </Flex>
+            <Box
+              asChild
+              style={{
+                justifySelf: 'end',
+                alignSelf: 'start',
+              }}
+              gridArea="portrait"
+              gridColumn={{ initial: 'span 1', sm: '3 / span 1' }}
+              gridRow={{ initial: 'span 1', sm: '1 / span 8' }}
+            >
+              <Image
+                src="/assets/images/portrait.jpeg"
+                alt="Oleksandr (Shonie) Starnikov"
+                objectFit="cover"
+                width={500}
+                height={500}
+                className="rounded-md"
+              />
+            </Box>
+          </Grid>
         </Section>
 
         <Section>
