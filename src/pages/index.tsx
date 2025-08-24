@@ -35,10 +35,6 @@ const badges = [
     name: 'Automation & system integration',
     icon: Icons.Share1Icon,
   },
-  {
-    name: 'Performance troubleshooting & optimization',
-    icon: Icons.Crosshair1Icon,
-  },
 ];
 
 export default function Home() {
@@ -51,16 +47,16 @@ export default function Home() {
           content="I'm a full-stack developer and cloud architect with 9+ years of experience. I specialize in building scalable, efficient solutions that scale, anywhere."
         />
       </Head>
-      <Container className="flex-col snap-y snap-mandatory h-screen m-0 overflow-y-scroll scroll-smooth [scroll-snap-type:y_mandatory]">
+      <Container className="flex-col snap-y snap-mandatory h-screen m-0 overflow-y-scroll scroll-smooth [scroll-snap-type:y_mandatory] ">
         <Section>
           <Grid
             columns={{
               initial: '1',
-              sm: '[col1] 1fr [col2] 1fr [col3] 2fr [end]',
+              sm: 'repeat(4, 1fr)',
             }}
             rows={{
               initial: '1',
-              sm: '[row1] 1fr [row2] 3fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 1fr [row7] 1fr [end]',
+              sm: 'repeat(8, 64px)',
             }}
             style={{
               columnGap: '24px',
@@ -71,11 +67,10 @@ export default function Home() {
             p={{
               initial: '25% 10% 25% 10%',
               md: '25% 0% 25% 0%',
-              // md: '0',
             }}
             mb="4"
           >
-            <Box
+            {/* <Box
               asChild
               style={{
                 justifySelf: 'start',
@@ -89,35 +84,36 @@ export default function Home() {
               <SectionHeading className="text-left mb-0">
                 Oleksandr (Shonie) Starnikov
               </SectionHeading>
-            </Box>
+            </Box> */}
 
             <Box
               asChild
               gridArea="text"
-              gridColumn={{ initial: 'span 1', sm: '1 / span 2' }}
-              gridRow={{ initial: 'span 1', sm: '2 / span 2' }}
+              gridColumn={{ initial: 'span 1', sm: '2 / span 2' }}
+              gridRow={{ initial: 'span 1', sm: '1 / span 2' }}
               style={{
                 alignSelf: 'start',
               }}
             >
               <Text
                 size={{
-                  initial: '4',
-                  md: '4',
+                  initial: '5',
+                  md: '5',
                 }}
                 mb="7"
                 as="p"
                 className="text-left"
               >
-                I am a cloud architect and full-stack developer with 9 years of
-                hands-on experience in designing, building, and scaling modern
+                Hi! My name is Oleksandr (Shonie) Starnikov, and I am a cloud
+                architect and full-stack developer with 9 years of hands-on
+                experience in designing, building, and scaling modern
                 applications. I specialize in creating reliable, maintainable,
                 and future-proof systems that bridge business needs with
                 technical excellence. My background covers both cloud
                 infrastructure and product development, which means I can take
                 ownership of projects from architecture through implementation
                 and delivery. If interested, I can help your project with the
-                following:
+                following on a contract basis:
               </Text>
             </Box>
 
@@ -126,11 +122,11 @@ export default function Home() {
                 gridArea="badge"
                 gridRow={{
                   initial: 'span 1',
-                  sm: `${Math.ceil((index + 1) / 2) + 2} / span 1`,
+                  sm: `${Math.ceil((index + 9) / 2)} / span 1`,
                 }}
                 gridColumn={{
                   initial: 'span 1',
-                  sm: `${(index % 2) + 1} / span 1`,
+                  sm: `${(index % 2) + 2} / span 1`,
                 }}
                 key={`badge-${badge.name}-${index}`}
               >
@@ -140,25 +136,6 @@ export default function Home() {
                 </Badge>
               </Box>
             ))}
-            <Box
-              asChild
-              style={{
-                justifySelf: 'end',
-                alignSelf: 'start',
-              }}
-              gridArea="portrait"
-              gridColumn={{ initial: 'span 1', sm: '3 / span 1' }}
-              gridRow={{ initial: 'span 1', sm: '1 / span 8' }}
-            >
-              <Image
-                src="/assets/images/portrait.jpeg"
-                alt="Oleksandr (Shonie) Starnikov"
-                objectFit="cover"
-                width={500}
-                height={500}
-                className="rounded-md"
-              />
-            </Box>
           </Grid>
         </Section>
 
