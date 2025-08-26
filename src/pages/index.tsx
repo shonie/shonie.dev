@@ -65,7 +65,7 @@ export default function Home() {
             align="center"
             width="auto"
             p={{
-              initial: '25% 10% 25% 10%',
+              initial: '25% 16px 25% 16px',
               md: '25% 0% 25% 0%',
             }}
             mb="4"
@@ -104,16 +104,11 @@ export default function Home() {
                 as="p"
                 className="text-left"
               >
-                Hi! My name is Oleksandr (Shonie) Starnikov, and I am a cloud
-                architect and full-stack developer with 9 years of hands-on
-                experience in designing, building, and scaling modern
-                applications. I specialize in creating reliable, maintainable,
-                and future-proof systems that bridge business needs with
-                technical excellence. My background covers both cloud
-                infrastructure and product development, which means I can take
-                ownership of projects from architecture through implementation
-                and delivery. If interested, I can help your project with the
-                following on a contract basis:
+                Crafting software end-to-end since 2016. Having a variety of
+                successful products in my portfolio, now, working contractually
+                for clients across the globe. Building infinitely scalable
+                cloud-native applications that deliver real value to real users.
+                If interested, let's have a chat to discuss your project
               </Text>
             </Box>
 
