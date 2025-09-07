@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { appConfig } from '@/app-config';
 import { Link } from './Link';
 import { BookMeetingButton } from './BookMeetingButton';
-import { Flex, Separator, Heading, Box } from '@radix-ui/themes';
+import { Flex, Separator, Heading, Grid } from '@radix-ui/themes';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { Menu, X } from 'lucide-react';
 import { useCallback, useState } from 'react';
@@ -31,13 +31,20 @@ export const Header = () => {
   }, []);
 
   return (
-    <Box
+    <Grid
       asChild
-      p="4"
-      className="flex flex-row w-full fixed top-0 rounded-xs border-b-1 min-w-100 backdrop-blur-sm transition-all duration-200 ease-in border-gray-700 z-9"
+      columns={{
+        initial: '1',
+        sm: 'repeat(12, 1fr)',
+      }}
+      rows="1"
+      style={{
+        columnGap: '16px',
+        rowGap: '0px',
+      }}
     >
-      <header>
-        <Container className="flex-row">
+      <header className="flex flex-row w-full fixed top-0 rounded-xs border-b-1 min-w-100 backdrop-blur-sm transition-all duration-200 ease-in border-gray-700 z-9">
+        <Container>
           <Heading
             size="8"
             weight="bold"
@@ -112,6 +119,6 @@ export const Header = () => {
           </div>
         </Container>
       </header>
-    </Box>
+    </Grid>
   );
 };

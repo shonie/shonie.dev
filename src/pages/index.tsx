@@ -52,14 +52,14 @@ export default function Home() {
           <Grid
             columns={{
               initial: '1',
-              sm: 'repeat(4, 1fr)',
+              sm: 'repeat(12, 1fr)',
             }}
             rows={{
               initial: '1',
               sm: 'repeat(8, 64px)',
             }}
             style={{
-              columnGap: '24px',
+              columnGap: '16px',
               rowGap: '0px',
             }}
             align="center"
@@ -70,26 +70,10 @@ export default function Home() {
             }}
             mb="4"
           >
-            {/* <Box
-              asChild
-              style={{
-                justifySelf: 'start',
-                alignSelf: 'start',
-                gridColumn: '1 / span 2',
-              }}
-              gridArea="heading"
-              gridColumn={{ initial: 'span 1', sm: '1 / span 2' }}
-              gridRow={{ initial: 'span 1', sm: '1 / span 1' }}
-            >
-              <SectionHeading className="text-left mb-0">
-                Oleksandr (Shonie) Starnikov
-              </SectionHeading>
-            </Box> */}
-
             <Box
               asChild
               gridArea="text"
-              gridColumn={{ initial: 'span 1', sm: '2 / span 2' }}
+              gridColumn={{ initial: 'span 1', sm: '4 / span 6' }}
               gridRow={{ initial: 'span 1', sm: '1 / span 2' }}
               style={{
                 alignSelf: 'start',
@@ -108,7 +92,7 @@ export default function Home() {
                 successful products in my portfolio, now, working contractually
                 for clients across the globe. Building infinitely scalable
                 cloud-native applications that deliver real value to real users.
-                If interested, let's have a chat to discuss your project
+                If interested, let&apos;s have a chat to discuss your project
               </Text>
             </Box>
 
@@ -117,11 +101,11 @@ export default function Home() {
                 gridArea="badge"
                 gridRow={{
                   initial: 'span 1',
-                  sm: `${Math.ceil((index + 9) / 2)} / span 1`,
+                  sm: `${Math.ceil((index + 7) / 2)} / span 1`,
                 }}
                 gridColumn={{
                   initial: 'span 1',
-                  sm: `${(index % 2) + 2} / span 1`,
+                  sm: `${4 + (index % 2) * 3} / span 3`,
                 }}
                 key={`badge-${badge.name}-${index}`}
               >
