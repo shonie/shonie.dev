@@ -2,17 +2,16 @@ import { useRouter } from 'next/router';
 import { appConfig } from '@/app-config';
 import { Link } from './Link';
 import { BookMeetingButton } from './BookMeetingButton';
-import { Flex, Separator, Heading, Grid } from '@radix-ui/themes';
+import { Flex, Heading, Grid, Box } from '@radix-ui/themes';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { Menu, X } from 'lucide-react';
 import { useCallback, useState } from 'react';
-import { Container } from './Container';
 
 const links = [
-  { href: '/cv', label: 'CV' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/blog', label: 'Blog' },
+  { href: '#cv', label: 'CV' },
+  { href: '#review', label: 'Reviews' },
+  { href: '#stats', label: 'Stats' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export const HEADER_HEIGHT = '73px';
@@ -31,52 +30,48 @@ export const Header = () => {
   }, []);
 
   return (
-    <Grid
-      asChild
-      columns={{
-        initial: '1',
-        sm: 'repeat(12, 1fr)',
-      }}
-      rows="1"
-      style={{
-        columnGap: '16px',
-        rowGap: '0px',
-      }}
-    >
-      <header className="flex flex-row w-full fixed top-0 rounded-xs border-b-1 min-w-100 backdrop-blur-sm transition-all duration-200 ease-in border-gray-700 z-9">
-        <Container>
-          <Heading
-            size="8"
-            weight="bold"
-            onClick={handleTitleClick}
-            className="inline-block grow-4 cursor-pointer"
-          >
-            {appConfig.siteName}
-          </Heading>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex">
-            <Flex
-              justify="end"
-              gridRow="4"
-              gap="5"
-              className="sm:hidden md:hidden grow-8 lg:flex"
+    <header className="flex width-fullfixed h-[var(--header-height)] top-0 rounded-xs border-b-1 min-w-100 backdrop-blur-sm transition-all duration-200 ease-in border-gray-700 z-9">
+      <Grid
+        asChild
+        columns={{
+          initial: '1',
+          sm: 'repeat(12, 1fr)',
+        }}
+        rows="1"
+        style={{
+          columnGap: '16px',
+          rowGap: '0px',
+        }}
+      >
+        <div className="width-full max-w-[var(--container-max-width)] m-auto">
+          <Box asChild gridColumn={{ initial: 'span 1', sm: '1 / span 4' }}>
+            <Heading
+              size="8"
+              weight="bold"
+              onClick={handleTitleClick}
+              className="inline-block grow-4 cursor-pointer"
             >
-              <BookMeetingButton />
-              <Separator orientation="vertical" size="2" />
-              <Flex align="center" gap="6">
-                {links.map(link => (
-                  <Link
-                    href={link.href}
-                    key={link.href}
-                    active={pathname === link.href}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              {appConfig.siteName}
+            </Heading>
+          </Box>
+
+          <Box asChild gridColumn="7 / span 2">
+            <BookMeetingButton />
+          </Box>
+          {/* Desktop Navigation */}
+          {links.map((link, index) => (
+            <Box asChild key={link.href} gridColumn={`${9 + index} / span 1`}>
+              <Flex align="center" justify="center" gap="6">
+                <Link
+                  href={link.href}
+                  key={link.href}
+                  active={pathname === link.href}
+                >
+                  {link.label}
+                </Link>
               </Flex>
-            </Flex>
-          </div>
+            </Box>
+          ))}
 
           {/* Mobile Navigation */}
           <div className="flex lg:hidden items-center">
@@ -117,8 +112,8 @@ export const Header = () => {
               </NavigationMenu.List>
             </NavigationMenu.Root>
           </div>
-        </Container>
-      </header>
-    </Grid>
+        </div>
+      </Grid>
+    </header>
   );
 };
