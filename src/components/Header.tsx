@@ -30,7 +30,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="flex width-fullfixed h-[var(--header-height)] top-0 rounded-xs border-b-1 min-w-100 backdrop-blur-sm transition-all duration-200 ease-in border-gray-700 z-9">
+    <header className="flex size-dvw fixed h-[var(--header-height)] top-0 rounded-xs border-b-1 min-w-100 backdrop-blur-sm  transition-all duration-200 ease-in border-gray-700 z-9">
       <Grid
         asChild
         columns={{
