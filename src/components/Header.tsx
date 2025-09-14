@@ -55,12 +55,16 @@ export const Header = () => {
             </Heading>
           </Box>
 
-          <Box asChild gridColumn="7 / span 2">
+          <Box asChild gridColumn="7 / span 2" className="hidden lg:block">
             <BookMeetingButton />
           </Box>
-          {/* Desktop Navigation */}
           {links.map((link, index) => (
-            <Box asChild key={link.href} gridColumn={`${9 + index} / span 1`}>
+            <Box
+              asChild
+              key={link.href}
+              gridColumn={`${9 + index} / span 1`}
+              className="hidden lg:block"
+            >
               <Flex align="center" justify="center" gap="6">
                 <Link
                   href={link.href}

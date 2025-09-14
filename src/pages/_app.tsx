@@ -39,9 +39,9 @@ const ultra = Ultra({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div
-      className={`${inter.variable} ${roboto.variable} ${kanit.variable} ${interTight.variable} ${ultra.variable} antialiased bg-linear-to-br/longer from-black via-zink-900 to-[#0cd09c]`}
+      className={`${inter.variable} ${roboto.variable} ${kanit.variable} ${interTight.variable} ${ultra.variable} antialiased bg-linear-to-br/longer from-black via-zinc-900 to-[#0cd09c]`}
     >
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="dark">
         <Theme
           accentColor="mint"
           grayColor="gray"

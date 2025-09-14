@@ -101,7 +101,7 @@ export default function Home() {
                 gridArea="badge"
                 gridRow={{
                   initial: 'span 1',
-                  sm: `${Math.ceil((index + 7) / 2)} / span 1`,
+                  sm: `${Math.ceil((index + 5) / 2)} / span 1`,
                 }}
                 gridColumn={{
                   initial: 'span 1',
