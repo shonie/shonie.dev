@@ -55,9 +55,15 @@ export const Header = () => {
             </Heading>
           </Box>
 
-          <Box asChild gridColumn="7 / span 2" className="hidden lg:block">
+          <div
+            style={{
+              gridColumn: '7 / span 2',
+              display: 'none'
+            }}
+            className="lg:!block"
+          >
             <BookMeetingButton />
-          </Box>
+          </div>
           {links.map((link, index) => (
             <Box
               asChild
