@@ -39,7 +39,7 @@ export const BookMeetingButton = ({
         {...rest}
       >
         <ChatBubbleIcon />
-        Book a meeting
+        Book meeting
       </Button>
       {rootElement && (
         <PopupModal

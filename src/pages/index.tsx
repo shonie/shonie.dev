@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import { Card, Box, Text, Grid } from '@radix-ui/themes';
-import Image from 'next/image';
 import { appConfig } from '@/app-config';
 import { BookMeetingButton } from '@/components/BookMeetingButton';
 import * as Icons from '@radix-ui/react-icons';
@@ -49,63 +47,25 @@ export default function Home() {
       </Head>
       <Container className="flex-col snap-y snap-mandatory h-screen m-0 overflow-y-scroll scroll-smooth [scroll-snap-type:y_mandatory] ">
         <Section>
-          <Grid
-            columns={{
-              initial: '1',
-              sm: 'repeat(12, 1fr)',
-            }}
-            rows={{
-              initial: '1',
-              sm: 'repeat(8, 64px)',
-            }}
-            style={{
-              columnGap: '16px',
-              rowGap: '0px',
-            }}
-            align="center"
-            width="auto"
-            p={{
-              initial: '25% 16px 25% 16px',
-              md: '25% 0% 25% 0%',
-            }}
-            mb="4"
-          >
-            <Box
-              asChild
-              gridArea="text"
-              gridColumn={{ initial: 'span 1', sm: '4 / span 6' }}
-              gridRow={{ initial: 'span 1', sm: '1 / span 2' }}
-              style={{
-                alignSelf: 'start',
-              }}
+          <div className="grid grid-cols-12 grid-rows-8 gap-y-2 gap-x-4 items-center w-auto p-4 mb-4 lg:pt-[10%]">
+            <div
+              className="col-span-1 sm:col-start-4 sm:col-span-6 row-span-1 sm:row-start-1 sm:row-span-2 self-start"
             >
-              <Text
-                size={{
-                  initial: '5',
-                  md: '5',
-                }}
-                mb="7"
-                as="p"
-                className="text-left"
-              >
+              <p className="text-left text-xl md:text-xl mb-7">
                 Crafting software end-to-end since 2016. Having a variety of
                 successful products in my portfolio, now, working contractually
                 for clients across the globe. Building infinitely scalable
                 cloud-native applications that deliver real value to real users.
                 If interested, let&apos;s have a chat to discuss your project
-              </Text>
-            </Box>
+              </p>
+            </div>
 
             {badges.map((badge, index) => (
-              <Box
-                gridArea="badge"
-                gridRow={{
-                  initial: 'span 1',
-                  sm: `${Math.ceil((index + 5) / 2)} / span 1`,
-                }}
-                gridColumn={{
-                  initial: 'span 1',
-                  sm: `${4 + (index % 2) * 3} / span 3`,
+              <div
+                className="col-span-1 row-span-1"
+                style={{
+                  gridColumn: `${4 + (index % 2) * 3} / span 3`,
+                  gridRow: `${Math.ceil((index + 5) / 2)} / span 1`
                 }}
                 key={`badge-${badge.name}-${index}`}
               >
@@ -113,9 +73,9 @@ export default function Home() {
                   <badge.icon className="w-4 h-4 mr-2" />
                   {badge.name}
                 </Badge>
-              </Box>
+              </div>
             ))}
-          </Grid>
+          </div>
         </Section>
 
         <Section>
@@ -157,8 +117,8 @@ export default function Home() {
           <div className="container mx-auto max-w-4xl">
             <SectionHeading>What I bring to your project</SectionHeading>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="hover:shadow-lg transition-all duration-300 border-2 hover:border-secondary/20 dark:hover:border-secondary/40 bg-white dark:bg-slate-800 hover:scale-105">
-                <Box className="p-6">
+              <div className="hover:shadow-lg transition-all duration-300 border-2 hover:border-secondary/20 dark:hover:border-secondary/40 bg-white dark:bg-slate-800 hover:scale-105 rounded-lg">
+                <div className="p-6">
                   <CloudIcon className="w-10 h-10 text-secondary mb-4 transition-colors duration-300" />
                   <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 transition-colors duration-300">
                     Cloud Architecture
@@ -178,11 +138,11 @@ export default function Home() {
                       </Badge>
                     ))}
                   </div>
-                </Box>
-              </Card>
+                </div>
+              </div>
 
-              <Card className="hover:shadow-lg transition-all duration-300 border-2 hover:border-accent/20 dark:hover:border-accent/40 bg-white dark:bg-slate-800 hover:scale-105">
-                <Box className="p-6">
+              <div className="hover:shadow-lg transition-all duration-300 border-2 hover:border-accent/20 dark:hover:border-accent/40 bg-white dark:bg-slate-800 hover:scale-105 rounded-lg">
+                <div className="p-6">
                   <DatabaseIcon className="w-10 h-10 text-accent mb-4 transition-colors duration-300" />
                   <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 transition-colors duration-300">
                     Database Management
@@ -202,8 +162,8 @@ export default function Home() {
                       </Badge>
                     ))}
                   </div>
-                </Box>
-              </Card>
+                </div>
+              </div>
             </div>
           </div>
         </Section>

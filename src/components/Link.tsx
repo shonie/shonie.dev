@@ -11,6 +11,7 @@ export const Link = ({ href, children, active }: LinkProps) => {
   return (
     <RadixLink
       color="mint"
+      size="4"
       weight="medium"
       underline={active ? 'always' : 'none'}
       asChild
