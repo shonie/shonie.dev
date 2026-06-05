@@ -1,0 +1,141 @@
+import { CV_DATA, ICONS } from "@/lib/cv-data";
+
+const D = CV_DATA;
+
+function RoleBlock({ role, dates, bullets }) {
+  return (
+    <div className="cv-role">
+      <h3 className="cv-h2">{role}</h3>
+      <h3 className="cv-h2">{dates}</h3>
+      <ul className="cv-list">
+        {bullets.map(([lead, rest], i) => (
+          <li key={i}><strong>{lead}</strong>{rest}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function TitledBlock({ title, bullets }) {
+  return (
+    <div className="cv-role">
+      <h3 className="cv-h2">{title}</h3>
+      <ul className="cv-list">
+        {bullets.map((b, i) => <li key={i}>{b}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+function BulletList({ items }) {
+  return (
+    <ul className="cv-list cv-list--plain">
+      {items.map((b, i) => <li key={i}>{b}</li>)}
+    </ul>
+  );
+}
+
+function Portrait() {
+  return <div className="cv-portrait" aria-label="Portrait of Oleksandr Starnikov" />;
+}
+
+function PrefEntry({ label, text, list }) {
+  return (
+    <div className="cv-pref">
+      <h3 className="cv-h2">{label}</h3>
+      {text && <p className="cv-body">{text}</p>}
+      {list && <ul className="cv-list cv-list--plain">{list.map((b, i) => <li key={i}>{b}</li>)}</ul>}
+    </div>
+  );
+}
+
+function ContactRow({ icon, text, href, underline }) {
+  return (
+    <a className="cv-contact" href={href}>
+      <img src={ICONS[icon]} alt="" className="cv-contact__icon" />
+      <span className={underline ? "cv-link" : ""}>{text}</span>
+    </a>
+  );
+}
+
+function Page1() {
+  const left = D.career.slice(0, 2);
+  const right = D.career.slice(2);
+  return (
+    <div className="cv-page" data-screen-label="CV page 1">
+      <div className="cv-top">
+        <div>
+          <h1 className="cv-name">{D.name}</h1>
+          <h2 className="cv-h1 cv-title">{D.title}</h2>
+          <p className="cv-body cv-summary">{D.summary}</p>
+        </div>
+        <Portrait />
+      </div>
+      <div className="cv-section">
+        <h2 className="cv-h1">Career</h2>
+        <div className="cv-cols">
+          <div className="cv-col">{left.map((r, i) => <RoleBlock key={i} {...r} />)}</div>
+          <div className="cv-col">{right.map((r, i) => <RoleBlock key={i} {...r} />)}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Page2() {
+  return (
+    <div className="cv-page" data-screen-label="CV page 2">
+      <div className="cv-cols">
+        <div className="cv-col">
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "16px" }}>Education</h2>
+            {D.education.map((e, i) => <TitledBlock key={i} {...e} />)}
+          </div>
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "16px" }}>Certifications</h2>
+            {D.certifications.map((e, i) => <TitledBlock key={i} {...e} />)}
+          </div>
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "16px" }}>Courses</h2>
+            <div className="cv-col">{D.courses.map((e, i) => <TitledBlock key={i} {...e} />)}</div>
+          </div>
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "10px" }}>Skills</h2>
+            <ul className="cv-skills">{D.skills.map((s, i) => <li key={i}>{s}</li>)}</ul>
+          </div>
+        </div>
+        <div className="cv-col">
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "10px" }}>Hobbies</h2>
+            <BulletList items={D.hobbies} />
+          </div>
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "10px" }}>Languages</h2>
+            <BulletList items={D.languages} />
+          </div>
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "14px" }}>Work preferences</h2>
+            <div className="cv-col" style={{ gap: "16px" }}>
+              {D.workPrefs.map((p, i) => <PrefEntry key={i} {...p} />)}
+            </div>
+          </div>
+          <div>
+            <h2 className="cv-h1" style={{ marginBottom: "4px" }}>Contacts</h2>
+            <div className="cv-contacts">
+              {D.contacts.map((c, i) => <ContactRow key={i} {...c} />)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function CvDoc() {
+  return (
+    <div className="cv-stage" id="cv-stage">
+      <Page1 />
+      <Page2 />
+    </div>
+  );
+}

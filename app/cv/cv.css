@@ -1,0 +1,246 @@
+/* ============================================================
+   shonie.dev — CV route styles
+   Two-page A4 document on a grey stage. Faithful to the source.
+   Tokens (colour, type) come from globals.css.
+   ============================================================ */
+
+.cv-route {
+  background: #e9e9e9;
+  min-height: 100vh;
+}
+
+/* ---- top bar (screen only) ---- */
+.cv-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 18px 40px;
+}
+.cv-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.cv-back {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.cv-back:hover {
+  opacity: 0.6;
+}
+
+/* ---- stage holding the A4 pages ---- */
+.cv-stage {
+  display: flex;
+  gap: 40px;
+  padding: 8px 40px 56px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.cv-page {
+  position: relative;
+  width: 595px;
+  min-height: 842px;
+  background: var(--paper);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  padding: 44px 48px 48px;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+/* type */
+.cv-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.cv-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  margin: 0;
+}
+.cv-h2 {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0;
+}
+.cv-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 14px;
+  margin: 0;
+}
+
+/* header */
+.cv-top {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 24px;
+  align-items: start;
+}
+.cv-title {
+  margin: 14px 0 0;
+}
+.cv-summary {
+  margin: 22px 0 0;
+  max-width: 240px;
+}
+.cv-portrait {
+  width: 200px;
+  height: 232px;
+  background: url("/portrait.jpg") center/cover no-repeat;
+  box-shadow: var(--shadow-photo);
+}
+
+/* sections */
+.cv-section {
+  margin-top: 30px;
+}
+.cv-section > .cv-h1 {
+  margin-bottom: 18px;
+}
+.cv-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 28px;
+  align-items: start;
+}
+.cv-col {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.cv-role,
+.cv-pref {
+  break-inside: avoid;
+}
+.cv-role .cv-h2 + .cv-h2 {
+  margin-top: 2px;
+}
+.cv-list {
+  margin: 12px 0 0;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cv-list li {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 14px;
+}
+.cv-list li strong {
+  font-weight: 600;
+}
+.cv-list--plain {
+  margin-top: 8px;
+}
+.cv-pref {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cv-pref .cv-body {
+  max-width: 240px;
+}
+
+/* contacts */
+.cv-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 14px;
+}
+.cv-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.cv-contact__icon {
+  width: 14px;
+  height: auto;
+  flex: none;
+}
+.cv-contact span {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 1;
+}
+.cv-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cv-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 8px 0 0;
+  padding-left: 15px;
+}
+.cv-skills li {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+/* ---- print: clean A4 PDF, one page per A4 sheet ---- */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  html,
+  body {
+    background: #fff;
+  }
+  .cv-route {
+    background: #fff;
+    min-height: 0;
+  }
+  .cv-topbar {
+    display: none;
+  }
+  .cv-stage {
+    display: block;
+    padding: 0;
+    gap: 0;
+  }
+  .cv-page {
+    width: 210mm;
+    min-height: 297mm;
+    box-shadow: none;
+    margin: 0;
+    page-break-after: always;
+    break-after: page;
+  }
+  .cv-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
