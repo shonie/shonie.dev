@@ -520,7 +520,9 @@ a {
 }
 .w-footer__brand {
   display: flex;
+  flex: 1;
   flex-direction: column;
+  justify-content: space-between;
   gap: 12px;
 }
 .w-footer__meta {
@@ -529,12 +531,13 @@ a {
   color: var(--ink-55);
 }
 .w-footer__legal {
+  flex: 1;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  text-align: right;
+  text-align: left;
 }
 .w-footer__legal > div {
   display: flex;
