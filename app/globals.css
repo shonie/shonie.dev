@@ -4,12 +4,12 @@
    website surface styles. Monochrome ink-on-paper.
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 
 :root {
   /* ---- Type families ---- */
-  --font-display: "Work Sans", system-ui, sans-serif;
-  --font-body: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+  --font-display: 'Work Sans', system-ui, sans-serif;
+  --font-body: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
 
   /* ---- Core palette (strictly monochrome: ink on paper) ---- */
   --ink: #000000;
@@ -235,7 +235,7 @@ a {
 .w-hero__photo {
   width: 300px;
   height: 360px;
-  background: url("/portrait.jpg") center/cover no-repeat;
+  background: url('/portrait.jpg') center/cover no-repeat;
   box-shadow: var(--shadow-photo);
 }
 
@@ -245,7 +245,7 @@ a {
   position: relative;
 }
 .w-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: calc(50% - 50vw);
@@ -330,7 +330,7 @@ a {
   padding-left: 18px;
 }
 .w-work__bullets li::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 11px;
@@ -510,7 +510,7 @@ a {
   flex-wrap: wrap;
 }
 .w-footer::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: calc(50% - 50vw);

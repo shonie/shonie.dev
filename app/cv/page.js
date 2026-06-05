@@ -1,13 +1,12 @@
-import Link from "next/link";
-import "./cv.css";
-import CvDoc from "@/components/cv/CvDoc";
-import DownloadButton from "@/components/cv/DownloadButton";
-import Brick from "@/components/Brick";
+import Link from 'next/link';
+import './cv.css';
+import CvDoc from '@/components/cv/CvDoc';
+import DownloadButton from '@/components/cv/DownloadButton';
+import Brick from '@/components/Brick';
 
 export const metadata = {
-  title: "shonie.dev — CV · Oleksandr Starnikov",
-  description:
-    "Curriculum vitae of Oleksandr Starnikov — cloud / technical architect.",
+  title: 'shonie.dev — CV · Oleksandr Starnikov',
+  description: 'Curriculum vitae of Oleksandr Starnikov — cloud / technical architect.',
 };
 
 export default function CvPage() {

@@ -1,5 +1,5 @@
-import Brick from "./Brick";
-import { LEGAL } from "@/lib/cv-data";
+import Brick from './Brick';
+import { LEGAL } from '@/lib/cv-data';
 
 export default function Footer() {
   return (
@@ -11,9 +11,7 @@ export default function Footer() {
             shonie<span className="w-wordmark__dev">.dev</span>
           </span>
         </span>
-        <span className="w-footer__meta">
-          Oleksandr Starnikov · Technical architect · © 2026
-        </span>
+        <span className="w-footer__meta">Oleksandr Starnikov · Technical architect · © 2026</span>
       </div>
       <dl className="w-footer__legal">
         <div>
