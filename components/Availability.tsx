@@ -6,8 +6,9 @@ interface AvailabilityProps {
 
 export default function Availability({ prefs }: AvailabilityProps) {
   return (
-    <section className="w-avail" data-screen-label="Availability">
+    <section className="w-avail" id="availability" data-screen-label="Availability">
       <div className="w-avail__inner">
+        <h2 className="w-h2 w-avail__h2">Availability</h2>
         <p className="w-avail__big">Can start working at any time.</p>
         <div className="w-avail__grid">
           {prefs.map((p, i) => (

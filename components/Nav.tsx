@@ -9,6 +9,7 @@ interface NavProps {
 const links = [
   { label: 'Work', id: 'selected-work' },
   { label: 'Skills', id: 'skills' },
+  { label: 'Availability', id: 'availability' },
   { label: 'Contact', id: 'contact' },
 ];
 
