@@ -209,22 +209,43 @@ export const CV_DATA: CVData = {
   contacts: [
     { icon: 'linkedin', text: 'https://linkedin/in/shonie', href: '#', underline: true },
     { icon: 'envelope', text: 'recruit@shonie.dev', href: 'mailto:recruit@shonie.dev' },
-    { icon: 'github', text: 'https://github.com/shonie', href: '#' },
+    { icon: 'github', text: 'https://github.com/shonie', href: 'https://github.com/shonie' },
   ],
 };
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
     label: 'Cloud & Infra',
-    items: ['Amazon Web Services', 'Terraform', 'Serverless computing', 'CI/CD'],
+    items: [
+      'Amazon Web Services',
+      'Terraform',
+      'Serverless computing',
+      'CI/CD',
+      'GitHub Actions',
+      'Docker',
+    ],
   },
   {
     label: 'Data',
-    items: ['Data engineering', 'Snowflake', 'ETL', 'Business intelligence', 'MySQL', 'PostgreSQL'],
+    items: [
+      'Data engineering',
+      'Snowflake',
+      'ETL',
+      'Business intelligence',
+      'SQL',
+      'MySQL',
+      'PostgreSQL',
+      'Redshift',
+      'MongoDB',
+      'DynamoDB',
+      'AWS Glue',
+      'Apache Spark',
+      'Excel',
+    ],
   },
   {
     label: 'Development',
-    items: ['Node.js', 'React', 'GraphQL', 'RESTful API'],
+    items: ['Node.js', 'React', 'TypeScript', 'GraphQL', 'RESTful API', 'Claude Code'],
   },
   {
     label: 'Leadership',
