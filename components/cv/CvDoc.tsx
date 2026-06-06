@@ -9,7 +9,7 @@ function RoleBlock({ role, dates, bullets }: CareerItem) {
       <h3 className="cv-h2">{role}</h3>
       <h3 className="cv-h2">{dates}</h3>
       <ul className="cv-list">
-        {bullets.slice(0, 3).map(([lead, rest], i) => (
+        {bullets.map(([lead, rest], i) => (
           <li key={i}>
             <strong>{lead}</strong>
             {rest}
