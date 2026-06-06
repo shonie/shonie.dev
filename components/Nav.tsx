@@ -7,7 +7,7 @@ interface NavProps {
 }
 
 const links = [
-  { label: 'Work', id: 'selected-work' },
+  { label: 'Selected work', id: 'selected-work' },
   { label: 'Skills', id: 'skills' },
   { label: 'Availability', id: 'availability' },
   { label: 'Contact', id: 'contact' },
@@ -44,8 +44,8 @@ export default function Nav({ active, onNav }: NavProps) {
               {l.label}
             </a>
           ))}
-          <Button variant="solid" onClick={() => onNav('contact')}>
-            Hire me
+          <Button as="a" variant="solid" href="/cv">
+            View CV
           </Button>
         </nav>
       </div>
