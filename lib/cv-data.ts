@@ -170,7 +170,6 @@ export const CV_DATA: CVData = {
     'Team leadership',
     'Junior staff mentorship',
     'Requirements analysis',
-    'Technical debt management',
     'Data engineering',
     'Node.js',
     'React',
