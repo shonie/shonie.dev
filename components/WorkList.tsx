@@ -7,7 +7,7 @@ interface WorkListProps {
 
 export default function WorkList({ items }: WorkListProps) {
   return (
-    <section className="w-section" id="selected-work" data-screen-label="Work">
+    <section className="w-section w-invert" id="selected-work" data-screen-label="Work">
       <SectionTitle>Selected work</SectionTitle>
       <ul className="w-work">
         {items.map((r, i) => (

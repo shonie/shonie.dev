@@ -1,7 +1,13 @@
 /* ============================================================
    shonie.dev — global styles
-   Design-system foundations (colour + type) followed by the
-   website surface styles. Monochrome ink-on-paper.
+   Design-system foundations (colour + type + GRID) followed by
+   the website surface styles. Monochrome ink-on-paper.
+
+   Refactored to adopt the design system's editorial CSS grid:
+     • 1280px editorial container, 12-col field, 24px gutter
+     • strict 8px vertical baseline (--rh-* rhythm steps)
+     • signature asymmetric 8+4 split on Hero / Work / Contact
+     • magazine snap-scrolling — each section is a full page
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
@@ -30,7 +36,9 @@
   --w-medium: 500;
   --w-semibold: 600;
 
-  /* ---- Spacing scale (4px base) ---- */
+  /* ---- Spacing scale (4px base) — retained for micro spacing.
+     NOTE: --sp-3 (12px) is NOT an 8px-baseline multiple; prefer
+     the --rh-* steps below for any vertical rhythm. ---- */
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 12px;
@@ -43,10 +51,45 @@
   /* ---- Radii — the brand uses none. Square by default. ---- */
   --radius-0: 0px;
   --radius-1: 2px;
+
+  /* ============================================================
+     EDITORIAL GRID  (from design system grid.css)
+     ============================================================ */
+
+  /* ---- Horizontal field ---- */
+  --grid-max: 1280px;   /* editorial container width             */
+  --grid-margin: 48px;  /* page side margins (6 baseline units)  */
+  --grid-cols: 12;
+  --grid-gutter: 24px;  /* space between columns (3 baseline)    */
+
+  /* ---- Vertical field ---- */
+  --baseline: 8px;      /* atomic vertical unit                  */
+
+  /* ---- Baseline-snapped rhythm steps (multiples of 8) ---- */
+  --rh-1: 8px;
+  --rh-2: 16px;
+  --rh-3: 24px;
+  --rh-4: 32px;
+  --rh-5: 40px;
+  --rh-6: 48px;
+  --rh-8: 64px;
+  --rh-10: 80px;
+  --rh-12: 96px;
+
+  /* sticky-nav offset used by scroll-padding + section anchors  */
+  --nav-h: 64px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  /* Magazine snap-scrolling: each section behaves like a page.
+     'proximity' snaps when you land near a boundary without
+     trapping you inside the taller content pages (e.g. Work). */
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--nav-h);
 }
 
 html,
@@ -67,10 +110,68 @@ a {
   color: inherit;
 }
 
+/* ============================================================
+   GRID PRIMITIVES — drop-in utilities from the design system.
+   Available for any new markup; the surface styles below build
+   on the same column math and tokens.
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--grid-max);
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+}
+.grid,
+.container--grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+}
+.grid--rows { row-gap: var(--rh-3); }
+.grid--rows-lg { row-gap: var(--rh-6); }
+
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Signature asymmetric split: 8-col main + 4-col aside. */
+.editorial {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+}
+.editorial__main { grid-column: 1 / span 8; }
+.editorial__aside { grid-column: 9 / span 4; }
+.editorial--flip > .editorial__aside { grid-column: 1 / span 4; }
+.editorial--flip > .editorial__main { grid-column: 5 / span 8; }
+
+/* Vertical rhythm helpers — keep stacks on the baseline. */
+.flow > * { margin-block: 0; }
+.flow > * + * { margin-top: var(--rh-3); }
+.flow--tight > * + * { margin-top: var(--rh-2); }
+.flow--snug > * + * { margin-top: var(--rh-1); }
+.flow--loose > * + * { margin-top: var(--rh-4); }
+.flow--xloose > * + * { margin-top: var(--rh-6); }
+
+/* ============================================================
+   WEBSITE SURFACE
+   ============================================================ */
+
+/* The page container now rides the editorial field (1280 / 48). */
 .wrap {
-  max-width: 1080px;
+  width: 100%;
+  max-width: var(--grid-max);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--grid-margin);
 }
 
 /* ---- buttons ---- */
@@ -79,7 +180,7 @@ a {
   font-weight: 400;
   font-size: 15px;
   line-height: 1;
-  padding: 13px 22px;
+  padding: var(--sp-3) var(--rh-3); /* 12 / 24 */
   border: 1px solid var(--ink);
   background: var(--paper);
   color: var(--ink);
@@ -87,7 +188,7 @@ a {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--rh-1);
   white-space: nowrap;
   transition:
     background 0.15s ease,
@@ -112,7 +213,7 @@ a {
 .w-btn--link {
   border: none;
   background: none;
-  padding: 13px 6px;
+  padding: var(--sp-3) var(--sp-1);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -135,9 +236,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1080px;
+  max-width: var(--grid-max);
   margin: 0 auto;
-  padding: 18px 40px;
+  padding: var(--rh-2) var(--grid-margin); /* 16 / 48 */
 }
 .w-wordmark {
   font-family: var(--font-display);
@@ -148,7 +249,7 @@ a {
   color: var(--ink);
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: var(--rh-1);
 }
 .w-brick {
   display: inline-flex;
@@ -170,7 +271,7 @@ a {
 .w-nav__links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: var(--rh-3); /* 24 */
 }
 .w-nav__link {
   font-size: 15px;
@@ -187,13 +288,26 @@ a {
   border-bottom-color: var(--ink);
 }
 
-/* ---- hero ---- */
+/* ---- hero — editorial 8 (text) + 4 (photo) ---- */
 .w-hero {
   display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 56px;
-  align-items: center;
-  padding: 88px 0 72px;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+  align-items: start;
+  align-content: center;
+  min-height: 100svh;
+  padding-block: var(--rh-8);
+  scroll-snap-align: start;
+}
+.w-hero__text {
+  grid-column: 1 / span 8;
+}
+.w-hero__photo {
+  grid-column: 9 / span 4;
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  background: url('/portrait.jpg') center / cover no-repeat;
+  box-shadow: var(--shadow-photo);
 }
 .w-eyebrow {
   font-size: 13px;
@@ -201,7 +315,7 @@ a {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-55);
-  margin: 0 0 22px;
+  margin: 0 0 var(--rh-3);
 }
 .w-display {
   font-family: var(--font-display);
@@ -215,34 +329,33 @@ a {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 26px;
-  margin: 14px 0 0;
+  margin: var(--rh-2) 0 0;
   color: var(--ink);
 }
 .w-lead {
   font-weight: 300;
   font-size: 19px;
   line-height: 1.5;
-  margin: 24px 0 0;
+  margin: var(--rh-3) 0 0;
   max-width: 46ch;
   color: var(--ink);
 }
 .w-hero__cta {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 34px;
-}
-.w-hero__photo {
-  width: 300px;
-  height: 360px;
-  background: url('/portrait.jpg') center/cover no-repeat;
-  box-shadow: var(--shadow-photo);
+  gap: var(--rh-2);
+  margin-top: var(--rh-4);
 }
 
-/* ---- sections ---- */
+/* ---- sections — each a full magazine page ---- */
 .w-section {
-  padding: 64px 0;
+  min-height: 100svh;
+  padding-block: var(--rh-6);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  scroll-snap-align: start;
 }
 .w-section::before {
   content: '';
@@ -256,8 +369,8 @@ a {
 .w-sectiontitle {
   display: flex;
   align-items: baseline;
-  gap: 16px;
-  margin-bottom: 40px;
+  gap: var(--rh-2);
+  margin-bottom: var(--rh-5); /* 40 */
 }
 .w-kicker {
   font-family: var(--font-body);
@@ -280,26 +393,68 @@ a {
   margin: 0;
 }
 
-/* ---- work ---- */
+/* ============================================================
+   Inverted pages — black paper, white ink. Swaps the ink/paper
+   tokens so every descendant (text, hairlines, chips, markers)
+   inverts automatically, and bleeds the black to full viewport
+   width behind the content. Add to alternate sections + footer.
+   ============================================================ */
+.w-invert {
+  position: relative;
+  background: #000;
+  color: #fff;
+  --ink: #ffffff;
+  --paper: #000000;
+  --ink-70: rgba(255, 255, 255, 0.7);
+  --ink-55: rgba(255, 255, 255, 0.55);
+  --ink-12: rgba(255, 255, 255, 0.12);
+  --ink-06: rgba(255, 255, 255, 0.06);
+}
+.w-invert::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background: #000;
+  z-index: 0;
+}
+.w-invert > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- work — editorial 4 (role/dates) + 8 (achievements) ---- */
 .w-work {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .w-work__row {
-  padding: 26px 0;
+  padding: var(--rh-3) 0; /* 24 */
   border-top: 1px solid var(--ink-12);
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 40px;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
 }
 .w-work__row:first-child {
   border-top: none;
 }
 .w-work__head {
+  grid-column: 1 / span 4;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--rh-1);
+}
+.w-work__bullets {
+  grid-column: 5 / span 8;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rh-1);
 }
 .w-work__role {
   font-family: var(--font-display);
@@ -313,21 +468,13 @@ a {
   font-size: 15px;
   color: var(--ink-55);
 }
-.w-work__bullets {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 .w-work__bullets li {
   font-weight: 300;
   font-size: 16px;
   line-height: 1.5;
   color: var(--ink);
   position: relative;
-  padding-left: 18px;
+  padding-left: var(--rh-2);
 }
 .w-work__bullets li::before {
   content: '';
@@ -342,11 +489,15 @@ a {
   font-weight: 600;
 }
 
-/* ---- skills ---- */
+/* ---- skills — mapped onto the 12-col field (2 × 6) ---- */
 .w-skills {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 36px;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+  row-gap: var(--rh-4);
+}
+.w-skills__col {
+  grid-column: span 6;
 }
 .w-skills__label {
   font-family: var(--font-body);
@@ -354,33 +505,45 @@ a {
   font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin: 0 0 16px;
+  margin: 0 0 var(--rh-2);
   color: var(--ink);
 }
+/* Skill items render as DS chips — square, hairline border, light.
+   This restyles the existing <ul class="w-skills__list"><li> markup,
+   so no component change is needed to adopt chips. */
 .w-skills__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 9px;
+  flex-wrap: wrap;
+  gap: var(--rh-1);
 }
 .w-skills__list li {
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.3;
   color: var(--ink);
+  border: 1px solid var(--ink-12);
+  padding: 6px 12px;
+  white-space: nowrap;
 }
 
-/* ---- availability (inverted strip) ---- */
+/* ---- availability (inverted strip / full page) ---- */
 .w-avail {
   background: var(--ink);
   color: var(--paper);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
 }
 .w-avail__inner {
-  max-width: 1080px;
+  width: 100%;
+  max-width: var(--grid-max);
   margin: 0 auto;
-  padding: 64px 40px;
+  padding: var(--rh-8) var(--grid-margin);
 }
 .w-avail__big {
   font-family: var(--font-display);
@@ -388,20 +551,22 @@ a {
   font-size: 40px;
   line-height: 1.05;
   letter-spacing: -0.01em;
-  margin: 0 0 40px;
+  margin: 0 0 var(--rh-5);
   color: var(--paper);
 }
 .w-avail__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+  row-gap: var(--rh-4);
 }
 .w-avail__cell {
+  grid-column: span 3;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--rh-1);
   border-top: 1px solid rgba(255, 255, 255, 0.25);
-  padding-top: 16px;
+  padding-top: var(--rh-2);
 }
 .w-avail__k {
   font-weight: 400;
@@ -417,24 +582,33 @@ a {
   color: var(--paper);
 }
 
-/* ---- contact ---- */
+/* ---- contact — editorial 6 (intro + links) + 6 (form) ---- */
 .w-contact__cols {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+}
+.w-contact__left {
+  grid-column: 1 / span 6;
+}
+.w-form {
+  grid-column: 7 / span 6;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rh-2);
 }
 .w-contact__links {
   list-style: none;
-  margin: 32px 0 0;
+  margin: var(--rh-4) 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--rh-2);
 }
 .w-contact__links a {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--sp-3);
   text-decoration: none;
   color: var(--ink);
   font-weight: 300;
@@ -448,15 +622,10 @@ a {
   height: auto;
   flex: none;
 }
-.w-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
 .w-field {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: var(--rh-1);
 }
 .w-field span {
   font-weight: 400;
@@ -474,7 +643,7 @@ a {
   background: var(--paper);
   border: none;
   border-bottom: 1px solid var(--ink);
-  padding: 9px 0;
+  padding: var(--sp-2) 0;
   outline: none;
   resize: vertical;
 }
@@ -488,26 +657,29 @@ a {
 }
 .w-form .w-btn {
   align-self: flex-start;
-  margin-top: 6px;
+  margin-top: var(--rh-1);
 }
 .w-form__done {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--rh-2);
   align-items: flex-start;
 }
 
 /* ---- footer ---- */
 .w-footer {
   position: relative;
-  max-width: 1080px;
+  max-width: var(--grid-max);
   margin: 0 auto;
-  padding: 32px 40px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
+  padding: var(--rh-6) var(--grid-margin);
+  /* Own snap point at the page bottom so scrolling down rests on the
+     footer instead of snapping back up to the Contact page. */
+  scroll-snap-align: end;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+  row-gap: var(--rh-4);
+  align-items: start;
 }
 .w-footer::before {
   content: '';
@@ -519,27 +691,25 @@ a {
   background: var(--ink-12);
 }
 .w-footer__brand {
+  grid-column: span 3;
   display: flex;
-  flex: 1;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 12px;
+  gap: var(--sp-3);
 }
 .w-footer__meta {
   font-weight: 300;
   font-size: 13px;
   color: var(--ink-55);
 }
+/* The <dl> dissolves into the footer grid so each datum gets its
+   own column on the shared 12-col field. */
 .w-footer__legal {
-  flex: 1;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: left;
+  display: contents;
 }
 .w-footer__legal > div {
+  grid-column: span 3;
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -559,38 +729,97 @@ a {
   color: var(--ink);
 }
 
+/* ============================================================
+   Responsive — the field narrows, then the asymmetric splits
+   stack. Everything stays on the 8px baseline.
+   ============================================================ */
+@media (max-width: 1100px) {
+  :root {
+    --grid-margin: 40px;
+  }
+}
+
 @media (max-width: 860px) {
+  :root {
+    --grid-margin: 24px;
+    --grid-gutter: 16px;
+  }
+
+  /* hero stacks: photo above text */
   .w-hero {
-    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-block: var(--rh-6);
+  }
+  .w-hero__text,
+  .w-hero__photo {
+    grid-column: 1 / -1;
   }
   .w-hero__photo {
     order: -1;
     width: 220px;
-    height: 264px;
+    aspect-ratio: 5 / 6;
+    margin-top: 0;
+    margin-bottom: var(--rh-3);
   }
   .w-display {
     font-size: 48px;
   }
+
+  /* sections relax full-height on small screens */
+  .w-section,
+  .w-avail {
+    min-height: auto;
+  }
+
+  /* work stacks */
   .w-work__row {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    gap: var(--rh-2);
   }
-  .w-skills,
-  .w-avail__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .w-work__head,
+  .w-work__bullets {
+    grid-column: 1 / -1;
   }
-  .w-contact__cols {
-    grid-template-columns: 1fr;
-    gap: 36px;
+
+  /* skills stack 1-up; availability falls to 2-up */
+  .w-skills__col {
+    grid-column: 1 / -1;
   }
-  .w-footer__legal {
-    text-align: left;
+  .w-avail__cell {
+    grid-column: span 6;
+  }
+
+  /* contact stacks */
+  .w-contact__left,
+  .w-form {
+    grid-column: 1 / -1;
+  }
+  .w-form {
+    margin-top: var(--rh-4);
+  }
+
+  /* footer: brand full-width, data points 2-up */
+  .w-footer__brand {
+    grid-column: 1 / -1;
+  }
+  .w-footer__legal > div {
+    grid-column: span 6;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html,
-  body {
+  html {
     scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+}
+
+@media print {
+  html {
+    scroll-snap-type: none;
+  }
+  .w-hero,
+  .w-section,
+  .w-avail {
+    min-height: 0;
   }
 }
