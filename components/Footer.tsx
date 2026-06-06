@@ -15,7 +15,7 @@ export default function Footer() {
       </div>
       <dl className="w-footer__legal">
         <div>
-          <dt>Registered office</dt>
+          <dt>Location</dt>
           <dd>{LEGAL.office}</dd>
         </div>
         <div>

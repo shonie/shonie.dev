@@ -99,10 +99,6 @@ export const CV_DATA: CVData = {
         ],
         ['Built charts and dashboards', ' using QuickSight'],
         ['Developed and maintained ETL pipelines', ' running on AWS Glue'],
-        [
-          'Developed and optimised a large GraphQL API',
-          ' comprising nearly 1,000 queries and mutations',
-        ],
       ],
     },
     {
@@ -119,10 +115,6 @@ export const CV_DATA: CVData = {
       role: 'Frontend developer, SoftServe',
       dates: '2017 - 2018',
       bullets: [
-        [
-          'Initiated a data visualisation platform',
-          " for one of the world's leading consulting firms",
-        ],
         ['Mentored three junior frontend developers', ''],
         [
           'Extended the platform',
@@ -168,9 +160,7 @@ export const CV_DATA: CVData = {
   ],
   skills: [
     'Team leadership',
-    'Junior staff mentorship',
     'Requirements analysis',
-    'Technical debt management',
     'Data engineering',
     'Node.js',
     'React',
