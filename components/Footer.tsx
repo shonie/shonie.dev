@@ -11,19 +11,19 @@ export default function Footer() {
             shonie<span className="w-wordmark__dev">.dev</span>
           </span>
         </span>
-        <span className="w-footer__meta">Oleksandr Starnikov © 2026</span>
       </div>
+      <span className="w-footer__meta">Oleksandr Starnikov © 2026</span>
       <dl className="w-footer__legal">
         <div>
           <dt>Location</dt>
           <dd>{LEGAL.office}</dd>
         </div>
         <div>
-          <dt>VAT</dt>
+          <dt>VAT ID</dt>
           <dd>{LEGAL.vat}</dd>
         </div>
         <div>
-          <dt>KVK</dt>
+          <dt>KVK number</dt>
           <dd>{LEGAL.kvk}</dd>
         </div>
       </dl>

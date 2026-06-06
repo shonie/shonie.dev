@@ -740,7 +740,7 @@ a {
   display: grid;
   grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
   column-gap: var(--grid-gutter);
-  row-gap: var(--rh-4);
+  row-gap: var(--rh-1);
   align-items: start;
 }
 .w-footer::before {
@@ -753,42 +753,45 @@ a {
   background: var(--ink-12);
 }
 .w-footer__brand {
-  grid-column: span 3;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
+  grid-column: 1 / span 3;
+  grid-row: 1;
 }
 .w-footer__meta {
+  grid-column: 1 / span 3;
+  grid-row: 2;
   font-weight: 300;
   font-size: 13px;
   color: var(--ink-55);
 }
-/* The <dl> dissolves into the footer grid so each datum gets its
-   own column on the shared 12-col field. */
+/* The <dl> and its children dissolve into the footer grid so dt/dd
+   each become direct grid items on the shared 12-col field. */
 .w-footer__legal {
   display: contents;
 }
 .w-footer__legal > div {
+  display: contents;
+}
+.w-footer__legal dt {
+  grid-row: 1;
   grid-column: span 3;
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.w-footer__legal dt {
   font-weight: 400;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--ink-55);
+  color: var(--ink);
 }
 .w-footer__legal dd {
+  grid-row: 2;
+  grid-column: span 3;
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-weight: 300;
   font-size: 13px;
   line-height: 1.4;
-  color: var(--ink);
+  color: var(--ink-55);
 }
 
 /* ============================================================
@@ -859,12 +862,28 @@ a {
     margin-top: var(--rh-4);
   }
 
-  /* footer: brand full-width, data points 2-up */
+  /* footer: brand + meta full-width, data points 2-up */
   .w-footer__brand {
     grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .w-footer__meta {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
   .w-footer__legal > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     grid-column: span 6;
+  }
+  .w-footer__legal dt {
+    grid-row: auto;
+    grid-column: auto;
+  }
+  .w-footer__legal dd {
+    grid-row: auto;
+    grid-column: auto;
   }
 }
 
