@@ -207,7 +207,12 @@ export const CV_DATA: CVData = {
     },
   ],
   contacts: [
-    { icon: 'linkedin', text: 'https://linkedin/in/shonie', href: '#', underline: true },
+    {
+      icon: 'linkedin',
+      text: 'linkedin.com/in/shonie',
+      href: 'https://linkedin.com/in/shonie',
+      underline: true,
+    },
     { icon: 'envelope', text: 'recruit@shonie.dev', href: 'mailto:recruit@shonie.dev' },
     { icon: 'github', text: 'https://github.com/shonie', href: 'https://github.com/shonie' },
   ],
