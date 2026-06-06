@@ -223,6 +223,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'CI/CD',
       'GitHub Actions',
       'Docker',
+      'CloudFormation',
     ],
   },
   {
@@ -245,7 +246,16 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     label: 'Development',
-    items: ['Node.js', 'React', 'TypeScript', 'GraphQL', 'RESTful API', 'Claude Code'],
+    items: [
+      'Node.js',
+      'React',
+      'TypeScript',
+      'Python',
+      'Bash',
+      'GraphQL',
+      'RESTful API',
+      'Claude Code',
+    ],
   },
   {
     label: 'Leadership',
