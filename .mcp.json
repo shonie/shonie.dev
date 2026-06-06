@@ -1,0 +1,9 @@
+{
+  "$schema": "https://github.com/modelcontextprotocol/specification/raw/main/schema/mcp_config_schema.json",
+  "mcpServers": {
+    "chrome-mcp-server": {
+      "type": "http",
+      "url": "http://127.0.0.1:12306/mcp"
+    }
+  }
+}
