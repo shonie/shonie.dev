@@ -1,4 +1,10 @@
-export default function Availability({ prefs }) {
+import type { AvailPref } from '@/lib/cv-data';
+
+interface AvailabilityProps {
+  prefs: AvailPref[];
+}
+
+export default function Availability({ prefs }: AvailabilityProps) {
   return (
     <section className="w-avail" data-screen-label="Availability">
       <div className="w-avail__inner">

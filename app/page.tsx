@@ -13,7 +13,7 @@ import { CV_DATA, SKILL_GROUPS, AVAIL_PREFS } from '@/lib/cv-data';
 export default function Home() {
   const [active, setActive] = useState('top');
 
-  const onNav = (id) => {
+  const onNav = (id: string) => {
     setActive(id);
     const el = document.getElementById(id);
     if (el)

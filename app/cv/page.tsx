@@ -1,10 +1,11 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import './cv.css';
 import CvDoc from '@/components/cv/CvDoc';
 import DownloadButton from '@/components/cv/DownloadButton';
 import Brick from '@/components/Brick';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'shonie.dev — CV · Oleksandr Starnikov',
   description: 'Curriculum vitae of Oleksandr Starnikov — cloud / technical architect.',
 };

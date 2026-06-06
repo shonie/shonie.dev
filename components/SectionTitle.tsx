@@ -1,4 +1,9 @@
-export default function SectionTitle({ kicker, children }) {
+interface SectionTitleProps {
+  kicker?: string;
+  children: React.ReactNode;
+}
+
+export default function SectionTitle({ kicker, children }: SectionTitleProps) {
   return (
     <div className="w-sectiontitle">
       {kicker && <span className="w-kicker">{kicker}</span>}

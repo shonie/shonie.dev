@@ -1,6 +1,11 @@
-import SectionTitle from "./SectionTitle";
+import SectionTitle from './SectionTitle';
+import type { CareerItem } from '@/lib/cv-data';
 
-export default function WorkList({ items }) {
+interface WorkListProps {
+  items: CareerItem[];
+}
+
+export default function WorkList({ items }: WorkListProps) {
   return (
     <section className="w-section" id="selected-work" data-screen-label="Work">
       <SectionTitle>Selected work</SectionTitle>

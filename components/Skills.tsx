@@ -1,6 +1,11 @@
-import SectionTitle from "./SectionTitle";
+import SectionTitle from './SectionTitle';
+import type { SkillGroup } from '@/lib/cv-data';
 
-export default function Skills({ groups }) {
+interface SkillsProps {
+  groups: SkillGroup[];
+}
+
+export default function Skills({ groups }: SkillsProps) {
   return (
     <section className="w-section" id="skills" data-screen-label="Skills">
       <SectionTitle>Skills</SectionTitle>
