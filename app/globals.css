@@ -604,7 +604,8 @@ a {
 .w-avail__big {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 40px;
+  font-size: 32px;
+  font-style: italic;
   line-height: 1.05;
   letter-spacing: -0.01em;
   margin: 0 0 var(--rh-5);
@@ -639,6 +640,10 @@ a {
 }
 
 /* ---- contact — editorial 6 (intro + links) + 6 (form) ---- */
+.w-contact {
+  justify-content: center;
+}
+
 .w-contact__cols {
   display: grid;
   grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
