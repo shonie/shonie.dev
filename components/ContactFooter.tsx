@@ -20,7 +20,7 @@ export default function ContactFooter({ contacts }: ContactFooterProps) {
           <ul className="w-contact__links">
             {contacts.map((c, i) => (
               <li key={i}>
-                <a href={c.href}>
+                <a href={c.href} target="_blank" rel="noopener noreferrer">
                   <img src={ICONS[c.icon]} alt="" />
                   <span>{c.text}</span>
                 </a>
