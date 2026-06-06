@@ -169,7 +169,6 @@ export const CV_DATA: CVData = {
   skills: [
     'Team leadership',
     'Junior staff mentorship',
-    'Cloud expenses budgeting',
     'Requirements analysis',
     'Technical debt management',
     'Data engineering',
