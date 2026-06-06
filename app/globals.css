@@ -640,7 +640,8 @@ a {
 }
 
 /* ---- contact — editorial 6 (intro + links) + 6 (form) ---- */
-.w-contact {
+.w-contact,
+#skills {
   justify-content: center;
 }
 
