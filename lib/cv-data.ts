@@ -26,7 +26,7 @@ export interface Contact {
   underline?: boolean;
 }
 
-export interface CVData {
+export interface CvData {
   name: string;
   title: string;
   summary: string;
@@ -57,14 +57,14 @@ export interface Legal {
   kvk: string;
 }
 
-export const CV_DATA: CVData = {
+export const CV_DATA: CvData = {
   name: 'Oleksandr Starnikov',
   title: 'Technical architect',
   summary:
     'A cloud architect with a decade of experience building advanced B2B solutions end-to-end. An expert at data engineering and web application development. Currently operating as an independent contractor, providing remote software architecture and engineering services, while remaining open to long-term contracts and on-site engagements.',
   career: [
     {
-      role: 'Technical lead/architect, Rio ESG',
+      role: 'Technical lead/architect, Rio AI',
       dates: '2021 - present',
       bullets: [
         [
@@ -90,7 +90,7 @@ export const CV_DATA: CVData = {
       ],
     },
     {
-      role: 'Full-stack developer, Rio ESG',
+      role: 'Full-stack developer, Rio AI',
       dates: '2019 - 2021',
       bullets: [
         [
@@ -98,7 +98,7 @@ export const CV_DATA: CVData = {
           ' that supported complex business requirements across Amazon Aurora, Snowflake, and Amazon Athena',
         ],
         ['Built charts and dashboards', ' using QuickSight'],
-        ['Developed and maintained ETL pipelines', ' running on AWS Glue'],
+        ['Developed and maintained ETL pipelines running on AWS Glue', ' running on AWS Glue'],
       ],
     },
     {
@@ -107,7 +107,7 @@ export const CV_DATA: CVData = {
       bullets: [
         ['Managed Terraform-based AWS infrastructure', ' including SQS, DynamoDB, EC2, and S3'],
         ['Developed a pool of Node.js data-processing services', ' running on EC2.'],
-        ['Increased automated test coverage', ' to approximately 90%'],
+        ['Increased automated test coverage', ' to 90%'],
         ['Developed REST APIs', ' and accompanying Open API documentation'],
       ],
     },
