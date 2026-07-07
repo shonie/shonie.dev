@@ -177,7 +177,7 @@ export const CV_DATA: CvData = {
   ],
   languages: ['Ukrainian — native', 'English — fluent', 'Russian — fluent', 'Dutch — intermediate'],
   workPrefs: [
-    { label: 'Notice period', text: 'Can start working at any time' },
+    { label: 'Notice period', text: 'Available to start within one to two weeks' },
     {
       label: 'Employment type',
       text: 'Providing services on an hourly basis. Please contact me using the contacts below to discuss your project and engagement requirements.',
@@ -255,7 +255,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
 ];
 
 export const AVAIL_PREFS: AvailPref[] = [
-  { label: 'Notice period', value: 'Can start at any time' },
+  { label: 'Notice period', value: '~1–2 weeks' },
   { label: 'Employment', value: 'Hourly basis · contract' },
   { label: 'Location', value: 'Remote · open to on-site' },
   { label: 'Clients', value: 'Digital products · Startups · Agencies · Enterprise' },
