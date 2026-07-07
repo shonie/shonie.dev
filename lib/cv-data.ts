@@ -69,11 +69,11 @@ export const CV_DATA: CvData = {
       bullets: [
         [
           'Developed an AI-powered data analysis assistant',
-          ' using AWS Bedrock and real-time HTTP streaming',
+          ' using AWS Bedrock AgentCore and real-time HTTP streaming',
         ],
         [
-          'Coordinated the migration from Snowflake to AWS Redshift',
-          ', addressing architectural flaws and significantly improving data quality and stakeholder trust in reporting.',
+          'Coordinated the migration from Snowflake to Redshift',
+          ', addressing architectural flaws and improving data quality and trust in reporting.',
         ],
         [
           'Implemented AI-driven remediation workflows',
@@ -84,8 +84,8 @@ export const CV_DATA: CvData = {
           ' using Material design and AG Charts with focus on visual excellence',
         ],
         [
-          'Led the migration of CI/CD pipelines',
-          ' to GitHub Actions and consolidated repositories into a monorepo, enabling a higher degree of automation and standardisation.',
+          'Migrated 50+ repositories from Bitbucket to GitHub',
+          ' and consolidated core services into a monorepo to streamline CI/CD and code sharing.',
         ],
       ],
     },
@@ -94,11 +94,10 @@ export const CV_DATA: CvData = {
       dates: '2019 - 2021',
       bullets: [
         [
-          'Designed database schemas',
+          'Designed database schemas and ETL pipelines',
           ' that supported complex business requirements across Amazon Aurora, Snowflake, and Amazon Athena',
         ],
         ['Built charts and dashboards', ' using QuickSight'],
-        ['Developed and maintained ETL pipelines running on AWS Glue', ' running on AWS Glue'],
       ],
     },
     {
@@ -106,7 +105,6 @@ export const CV_DATA: CvData = {
       dates: '2018 - 2019',
       bullets: [
         ['Managed Terraform-based AWS infrastructure', ' including SQS, DynamoDB, EC2, and S3'],
-        ['Developed a pool of Node.js data-processing services', ' running on EC2.'],
         ['Increased automated test coverage', ' to 90%'],
         ['Developed REST APIs', ' and accompanying Open API documentation'],
       ],
@@ -159,22 +157,16 @@ export const CV_DATA: CvData = {
     },
   ],
   skills: [
-    'Team leadership',
-    'Requirements analysis',
-    'Data engineering',
-    'Node.js',
-    'React',
-    'GraphQL',
-    'RESTful API',
-    'MySQL',
-    'PostgreSQL',
-    'Snowflake',
-    'Business intelligence',
+    'Technical leadership in software projects',
+    'Efficient communication on technical topics',
     'Amazon Web Services',
-    'Terraform',
+    'SQL databases (MySQL, PostgreSQL, Redshift, Snowflake, PrestoSQL)',
+    'NoSQL databases (Neo4j, MongoDB, DynamoDB, Redis)',
+    'Business intelligence tools (QuickSight, Power BI, Excel)',
+    'Data engineering (data modeling, ETL, data warehousing)',
+    'Full-stack development (Node.js, React, TypeScript, Next.js, GraphQL, RESTful, WebSocket)',
+    'DevOps (CI/CD, GitHub Actions, Docker, ECS, Jenkins, BitBucket, Terraform, CloudFormation)',
     'Serverless computing',
-    'ETL',
-    'CI/CD',
   ],
   hobbies: [
     'Vinyl record collecting',

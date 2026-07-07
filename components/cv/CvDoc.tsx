@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { CV_DATA, ICONS } from '@/lib/cv-data';
 import type { CareerItem, TitledItem, WorkPref, Contact, IconKey } from '@/lib/cv-data';
 
@@ -66,7 +67,13 @@ function PrefEntry({ label, text, list }: WorkPref) {
 function ContactRow({ icon, text, href, underline }: Contact) {
   return (
     <a className="cv-contact" href={href}>
-      <img src={ICONS[icon as IconKey]} alt="" className="cv-contact__icon" />
+      <Image
+        src={ICONS[icon as IconKey]}
+        alt=""
+        className="cv-contact__icon"
+        width={16}
+        height={16}
+      />
       <span className={underline ? 'cv-link' : ''}>{text}</span>
     </a>
   );
@@ -119,21 +126,15 @@ function Page2() {
           </div>
           <div>
             <h2 className="cv-h1" style={{ marginBottom: '16px' }}>
-              Certifications
+              Certifications and Courses
             </h2>
-            {D.certifications.map((e, i) => (
-              <TitledBlock key={i} {...e} />
-            ))}
-          </div>
-          <div>
-            <h2 className="cv-h1" style={{ marginBottom: '16px' }}>
-              Courses
-            </h2>
-            <div className="cv-col">
-              {D.courses.map((e, i) => (
-                <TitledBlock key={i} {...e} />
+            <ul className="cv-list">
+              {D.certifications.concat(D.courses).map((b, i) => (
+                <li key={i}>
+                  <strong>{b.title}</strong> - {b.bullets.join(', ')}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
           <div>
             <h2 className="cv-h1" style={{ marginBottom: '10px' }}>
