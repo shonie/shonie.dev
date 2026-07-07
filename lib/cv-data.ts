@@ -262,7 +262,6 @@ export const AVAIL_PREFS: AvailPref[] = [
 ];
 
 // Legal / company details shown in the footer.
-// TODO: replace the placeholders below with the real registered details.
 export const LEGAL: Legal = {
   office: 'Landréstraat 1023, 2551 BP The Hague, Netherlands',
   vat: 'NL005272494B27',
