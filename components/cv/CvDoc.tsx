@@ -45,7 +45,16 @@ function BulletList({ items }: { items: string[] }) {
 }
 
 function Portrait() {
-  return <div className="cv-portrait" aria-label="Portrait of Oleksandr Starnikov" />;
+  return (
+    <Image
+      className="cv-portrait"
+      src="/portrait.jpg"
+      alt="Portrait of Oleksandr Starnikov"
+      width={200}
+      height={232}
+      priority
+    />
+  );
 }
 
 function PrefEntry({ label, text, list }: WorkPref) {

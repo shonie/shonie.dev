@@ -108,7 +108,7 @@
 .cv-portrait {
   width: 200px;
   height: 232px;
-  background: url('/portrait.jpg') center/cover no-repeat;
+  object-fit: cover;
   box-shadow: var(--shadow-photo);
 }
 
@@ -233,12 +233,19 @@
     gap: 0;
   }
   .cv-page {
-    width: 210mm;
-    min-height: 297mm;
+    /* Keep the exact on-screen 595x842 layout and scale it up to fill the
+       A4 sheet, so the PDF is identical to the HTML. zoom (unlike transform)
+       affects layout, so pagination still puts one page per sheet.
+       595px * 1.333 = 793px ≈ 210mm, 842px * 1.333 = 1122px ≈ 297mm. */
+    width: 595px;
+    height: 842px;
+    zoom: 1.333;
     box-shadow: none;
     margin: 0;
     page-break-after: always;
     break-after: page;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .cv-page:last-child {
     page-break-after: auto;
