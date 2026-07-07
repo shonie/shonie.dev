@@ -5,9 +5,24 @@ import CvDoc from '@/components/cv/CvDoc';
 import DownloadButton from '@/components/cv/DownloadButton';
 import Brick from '@/components/Brick';
 
+const CV_TITLE = 'shonie.dev — CV · Oleksandr Starnikov';
+const CV_DESCRIPTION = 'Curriculum vitae of Oleksandr Starnikov — cloud / technical architect.';
+
 export const metadata: Metadata = {
-  title: 'shonie.dev — CV · Oleksandr Starnikov',
-  description: 'Curriculum vitae of Oleksandr Starnikov — cloud / technical architect.',
+  title: CV_TITLE,
+  description: CV_DESCRIPTION,
+  alternates: { canonical: '/cv' },
+  openGraph: {
+    type: 'profile',
+    url: '/cv',
+    title: CV_TITLE,
+    description: CV_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: CV_TITLE,
+    description: CV_DESCRIPTION,
+  },
 };
 
 export default function CvPage() {
