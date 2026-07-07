@@ -73,7 +73,7 @@ export const CV_DATA: CvData = {
         ],
         [
           'Coordinated the migration from Snowflake to Redshift',
-          ', addressing architectural flaws and improving data quality and trust in reporting.',
+          ', addressing architectural flaws and improving data quality and trust in reporting',
         ],
         [
           'Implemented AI-driven remediation workflows',

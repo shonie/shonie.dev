@@ -727,6 +727,14 @@ a {
   gap: var(--rh-2);
   align-items: flex-start;
 }
+.w-form__error {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+  padding: var(--sp-2) var(--sp-3);
+  border-left: 2px solid var(--ink);
+  background: var(--ink-06);
+}
 
 /* ---- footer ---- */
 .w-footer {

@@ -6,6 +6,7 @@ type ButtonAsButton = {
   variant?: ButtonVariant;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   href?: never;
 };
 
@@ -16,6 +17,7 @@ type ButtonAsAnchor = {
   href?: string;
   onClick?: never;
   type?: never;
+  disabled?: never;
 };
 
 type ButtonProps = ButtonAsButton | ButtonAsAnchor;
@@ -27,6 +29,7 @@ export default function Button({
   type,
   as = 'button',
   href,
+  disabled,
 }: ButtonProps) {
   const cls = `w-btn w-btn--${variant}`;
   if (as === 'a') {
@@ -37,7 +40,7 @@ export default function Button({
     );
   }
   return (
-    <button className={cls} type={type || 'button'} onClick={onClick}>
+    <button className={cls} type={type || 'button'} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
