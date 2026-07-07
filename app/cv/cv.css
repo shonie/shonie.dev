@@ -210,6 +210,29 @@
   line-height: 14px;
 }
 
+/* ---- small screens ----
+   The A4 pages have a fixed 595px width, so they can't fit a phone. Rather
+   than shrink them to an unreadable size, keep them full-size and let the
+   stage pan horizontally. Containing the overflow here also stops the browser
+   from zooming the whole document out to fit. */
+@media screen and (max-width: 640px) {
+  .cv-topbar {
+    padding: 14px 16px;
+  }
+  .cv-back {
+    display: none; /* the wordmark already links back to the site */
+  }
+  .cv-stage {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* ---- print: clean A4 PDF, one page per A4 sheet ---- */
 @media print {
   @page {

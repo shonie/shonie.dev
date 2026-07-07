@@ -887,6 +887,13 @@ a {
   }
 }
 
+/* nav collapses to wordmark + CTA once the section links stop fitting */
+@media (max-width: 768px) {
+  .w-nav__link {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
