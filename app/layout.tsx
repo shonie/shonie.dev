@@ -1,7 +1,22 @@
 import type { Metadata } from 'next';
+import { Work_Sans, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
 import { CV_DATA } from '@/lib/cv-data';
 import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from '@/lib/site';
+
+const fontDisplay = Work_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const fontBody = Source_Sans_3({
+  subsets: ['latin'],
+  weight: ['300', '400', '600'],
+  variable: '--font-body',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -36,6 +51,7 @@ export const metadata: Metadata = {
 // real person (job title, location, and verified profiles via sameAs) and can
 // feed a Google Knowledge Panel. Built from the same CV source as the page.
 const emailContact = CV_DATA.contacts.find((c) => c.icon === 'envelope');
+
 const personLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -56,7 +72,7 @@ const personLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable}`}>
       <body>
         <script
           type="application/ld+json"

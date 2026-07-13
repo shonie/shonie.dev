@@ -180,7 +180,7 @@ export const CV_DATA: CvData = {
     { label: 'Notice period', text: 'Available to start within one to two weeks' },
     {
       label: 'Employment type',
-      text: 'Providing services on an hourly basis. Please contact me using the contacts below to discuss your project and engagement requirements.',
+      text: 'Providing services on an hourly basis. Please get in touch to discuss your project and engagement requirements.',
     },
     {
       label: 'Where',

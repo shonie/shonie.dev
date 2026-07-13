@@ -10,12 +10,10 @@
      • magazine snap-scrolling — each section is a full page
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
-
 :root {
-  /* ---- Type families ---- */
-  --font-display: 'Work Sans', system-ui, sans-serif;
-  --font-body: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+  /* ---- Type families ----
+     --font-display / --font-body are provided by next/font on <html>
+     (see app/layout.tsx). ---- */
 
   /* ---- Core palette (strictly monochrome: ink on paper) ---- */
   --ink: #000000;

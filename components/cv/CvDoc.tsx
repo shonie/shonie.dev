@@ -4,6 +4,10 @@ import type { CareerItem, TitledItem, WorkPref, Contact, IconKey } from '@/lib/c
 
 const D = CV_DATA;
 
+interface ContactVisibilityProps {
+  hideContacts?: boolean;
+}
+
 function RoleBlock({ role, dates, bullets }: CareerItem) {
   return (
     <div className="cv-role">
@@ -120,7 +124,7 @@ function Page1() {
   );
 }
 
-function Page2() {
+function Page2({ hideContacts }: ContactVisibilityProps) {
   return (
     <div className="cv-page" data-screen-label="CV page 2">
       <div className="cv-cols">
@@ -179,27 +183,29 @@ function Page2() {
               ))}
             </div>
           </div>
-          <div>
-            <h2 className="cv-h1" style={{ marginBottom: '4px' }}>
-              Contacts
-            </h2>
-            <div className="cv-contacts">
-              {D.contacts.map((c, i) => (
-                <ContactRow key={i} {...c} />
-              ))}
+          {!hideContacts && (
+            <div>
+              <h2 className="cv-h1" style={{ marginBottom: '4px' }}>
+                Contacts
+              </h2>
+              <div className="cv-contacts">
+                {D.contacts.map((c, i) => (
+                  <ContactRow key={i} {...c} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-export default function CvDoc() {
+export default function CvDoc({ hideContacts }: ContactVisibilityProps) {
   return (
     <div className="cv-stage" id="cv-stage">
       <Page1 />
-      <Page2 />
+      <Page2 hideContacts={hideContacts} />
     </div>
   );
 }

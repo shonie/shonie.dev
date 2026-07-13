@@ -5,8 +5,13 @@ import CvDoc from '@/components/cv/CvDoc';
 import DownloadButton from '@/components/cv/DownloadButton';
 import Brick from '@/components/Brick';
 
-const CV_TITLE = 'shonie.dev — CV · Oleksandr Starnikov';
-const CV_DESCRIPTION = 'Curriculum vitae of Oleksandr Starnikov — cloud / technical architect.';
+interface CvPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+const CV_TITLE = 'shonie.dev - CV - Oleksandr Starnikov';
+
+const CV_DESCRIPTION = 'Curriculum vitae of Oleksandr Starnikov - solution architect.';
 
 export const metadata: Metadata = {
   title: CV_TITLE,
@@ -25,7 +30,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CvPage() {
+/**
+ * Reading searchParams opts this route into dynamic rendering, which is what we
+ * want: `?no_contacts=true` produces a contact-free CV for platforms like Upwork
+ * that reject attachments containing contact details.
+ * @param param0
+ * @returns
+ */
+export default async function CvPage({ searchParams }: CvPageProps) {
+  const { no_contacts: noContacts } = await searchParams;
+
+  const value = Array.isArray(noContacts) ? noContacts.at(-1) : noContacts;
+
+  const hideContacts = value === 'true' || value === '1' || value === '';
+
   return (
     <div className="cv-route">
       <header className="cv-topbar">
@@ -42,7 +60,7 @@ export default function CvPage() {
           <DownloadButton />
         </div>
       </header>
-      <CvDoc />
+      <CvDoc hideContacts={hideContacts} />
     </div>
   );
 }
