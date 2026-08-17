@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Work_Sans, Source_Sans_3 } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { CV_DATA } from '@/lib/cv-data';
 import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from '@/lib/site';
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
