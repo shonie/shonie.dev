@@ -66,4 +66,4 @@ public/         Static assets (favicons, portrait, icons)
 
 ## License
 
-All rights reserved. The source is public for reference; the content, branding, and CV data are personal to Oleksandr Starnikov.
+Source code is released under the [MIT License](LICENSE). Personal content — CV/biographical data, branding, logos, icons, and photographs — is © 2026 Oleksandr Starnikov, all rights reserved, and excluded from the MIT grant. See [LICENSE](LICENSE) for details.
