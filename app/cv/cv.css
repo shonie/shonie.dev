@@ -107,17 +107,17 @@
 }
 .cv-portrait {
   width: 200px;
-  height: 232px;
+  height: 208px;
   object-fit: cover;
   box-shadow: var(--shadow-photo);
 }
 
 /* sections */
 .cv-section {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .cv-section > .cv-h1 {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 .cv-cols {
   display: grid;
@@ -128,7 +128,7 @@
 .cv-col {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 18px;
 }
 
 .cv-role,
@@ -139,11 +139,11 @@
   margin-top: 2px;
 }
 .cv-list {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   padding-left: 15px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 .cv-list li {
   font-family: var(--font-body);

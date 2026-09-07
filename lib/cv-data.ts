@@ -107,7 +107,6 @@ export const CV_DATA: CvData = {
           'Designed database schemas and ETL pipelines',
           ' that supported complex business requirements across Amazon Aurora, Snowflake, and Amazon Athena',
         ],
-        ['Built charts and dashboards', ' using QuickSight'],
       ],
     },
     {
@@ -115,20 +114,16 @@ export const CV_DATA: CvData = {
       dates: '2018 - 2019',
       bullets: [
         ['Managed Terraform-based AWS infrastructure', ' including SQS, DynamoDB, EC2, and S3'],
-        ['Increased automated test coverage', ' to 90%'],
-        ['Developed REST APIs', ' and accompanying Open API documentation'],
       ],
     },
     {
       role: 'Frontend developer, SoftServe',
       dates: '2017 - 2018',
       bullets: [
-        ['Mentored three junior frontend developers', ''],
         [
           'Extended the platform',
           ' with offline data processing and reactive visualisations using TypeScript, React and Highcharts',
         ],
-        ['Implemented pixel-perfect user interfaces', ' based on Figma designs'],
       ],
     },
     {
