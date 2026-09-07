@@ -378,6 +378,19 @@ a {
   margin: var(--rh-2) 0 0;
   color: var(--ink);
 }
+.w-hero__cred {
+  display: inline-flex;
+  align-items: center;
+  margin: var(--rh-2) 0 0;
+  padding: 6px 12px;
+  border: 1px solid var(--ink-12);
+  border-radius: var(--radius-1);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-70);
+}
 .w-lead {
   font-weight: 300;
   font-size: 19px;
@@ -535,6 +548,95 @@ a {
   font-weight: 600;
 }
 
+/* ---- testimonials — auto-drifting, hand-scrollable strip of pull-quotes ---- */
+.w-testi {
+  /* grow into the space the title leaves and center the track vertically,
+     so the carousel sits mid-section while the heading stays pinned at top */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  /* scrollable by hand (touch / trackpad drag); JS drives the slow drift and
+     pauses it while the pointer is down or hovering so a quote can be read */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* hide the scrollbar; tiles clip cleanly at the edge */
+  cursor: grab;
+  user-select: none; /* don't select quote text while dragging */
+}
+.w-testi::-webkit-scrollbar {
+  display: none;
+}
+.w-testi:active {
+  cursor: grabbing;
+}
+.w-testi__track {
+  display: flex;
+  width: max-content;
+}
+.w-testi__group {
+  display: flex;
+  gap: var(--rh-5);
+  /* zero the browser's default list padding, keeping only a trailing gap so the
+     seam between the two groups exactly matches the gap between tiles */
+  margin: 0;
+  padding: 0 var(--rh-5) 0 0;
+  list-style: none;
+  flex-shrink: 0;
+}
+.w-testi__item {
+  width: clamp(320px, 32vw, 420px);
+  /* every card is the same height, and the two grid rows guarantee the quote
+     and the author sit at identical vertical bands across all cards — the
+     author never drifts up or down relative to its neighbours */
+  height: 280px;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  row-gap: var(--rh-3);
+  padding: var(--rh-4);
+  border-radius: var(--radius-1);
+  /* black tile, white ink — swap the ink tokens so the quote, quote-mark and
+     role all read as light shades against the black for maximum contrast */
+  background: #000;
+  color: #fff;
+  --ink: #ffffff;
+  --ink-55: rgba(255, 255, 255, 0.55);
+}
+.w-testi__quote {
+  margin: 0;
+  min-height: 0;
+  align-self: start;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.w-testi__quote::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 0.5;
+  margin-bottom: var(--rh-2);
+  color: var(--ink-55);
+}
+.w-testi__by {
+  align-self: end;
+  display: flex;
+  align-items: baseline;
+  gap: var(--rh-1);
+}
+.w-testi__author {
+  font-weight: 600;
+  font-size: 15px;
+}
+.w-testi__role {
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--ink-55);
+}
 /* ---- skills — mapped onto the 12-col field (2 × 6) ---- */
 .w-skills {
   display: grid;

@@ -8,16 +8,18 @@ interface HeroData {
 
 interface HeroProps {
   data: HeroData;
+  credential?: string;
   onNav: (id: string) => void;
 }
 
-export default function Hero({ data, onNav }: HeroProps) {
+export default function Hero({ data, credential, onNav }: HeroProps) {
   return (
     <section className="w-hero" id="top" data-screen-label="Hero">
       <div className="w-hero__text">
         <p className="w-eyebrow">Independent contractor · The Hague, Netherlands · Available now</p>
         <h1 className="w-display">{data.name}</h1>
         <p className="w-hero__role">{data.title}</p>
+        {credential && <p className="w-hero__cred">{credential}</p>}
         <p className="w-lead">{data.summary}</p>
         <div className="w-hero__cta">
           <Button variant="solid" onClick={() => onNav('contact')}>

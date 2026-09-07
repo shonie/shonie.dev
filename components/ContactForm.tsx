@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { track } from '@vercel/analytics';
 import Button from './Button';
 
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
@@ -27,6 +28,7 @@ export default function ContactForm() {
       const res = await fetch(WEB3FORMS_ENDPOINT, { method: 'POST', body: formData });
       const data = await res.json();
       if (data.success) {
+        track('contact_submit');
         setStatus('ok');
         form.reset();
       } else {
