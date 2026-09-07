@@ -86,6 +86,10 @@ export const CV_DATA: CvData = {
           ' for a full product redesign spanning more than 1,000 React components, sequenced for a smooth, incremental migration',
         ],
         [
+          'Drove adoption of AI workflows',
+          ' via an internal Slack app that sped up routine work: ticket refinement, database lookups, quick analytics, and development estimation',
+        ],
+        [
           'Replaced QuickSight with in-house AG Charts dashboards',
           ', taking full control of every visual component to ensure a consistent look and feel across the product',
         ],
