@@ -51,6 +51,12 @@ export interface AvailPref {
   value: string;
 }
 
+export interface Testimonial {
+  quote: string;
+  author: string;
+  role?: string;
+}
+
 export interface Legal {
   office: string;
   vat: string;
@@ -59,29 +65,33 @@ export interface Legal {
 
 export const CV_DATA: CvData = {
   name: 'Oleksandr Starnikov',
-  title: 'Technical architect',
+  title: 'Solution architect',
   summary:
-    'A cloud architect with a decade of experience building advanced B2B solutions end-to-end. An expert at data engineering and web application development. Currently operating as an independent contractor, providing remote software architecture and engineering services, while remaining open to long-term contracts and on-site engagements.',
+    'A solution architect with a decade of experience designing and building advanced B2B systems end-to-end — across cloud infrastructure, data engineering, and web application development. Currently operating as an independent contractor, providing remote software architecture and engineering services, while remaining open to long-term contracts and full-time roles.',
   career: [
     {
       role: 'Technical lead/architect, Rio AI',
       dates: '2021 - present',
       bullets: [
         [
-          'Developed an AI-powered data analysis assistant',
+          'Migrated the data platform from Snowflake to Redshift',
+          ', trading raw compute for the precision of AWS-managed zero-ETL integration — a shift that cut data-related bugs reported that year by 75% compared with the year before',
+        ],
+        [
+          'Built an AI- and Sentry-driven error-remediation system',
+          ' that automatically diagnoses and resolves runtime errors, cutting response time to production bugs to 15 minutes',
+        ],
+        [
+          'Planned and led the rollout of a new design system',
+          ' for a full product redesign spanning more than 1,000 React components, sequenced for a smooth, incremental migration',
+        ],
+        [
+          'Replaced QuickSight with in-house AG Charts dashboards',
+          ', taking full control of every visual component to ensure a consistent look and feel across the product',
+        ],
+        [
+          'Developed an AI-powered data-analysis assistant',
           ' using AWS Bedrock AgentCore and real-time HTTP streaming',
-        ],
-        [
-          'Coordinated the migration from Snowflake to Redshift',
-          ', addressing architectural flaws and improving data quality and trust in reporting',
-        ],
-        [
-          'Implemented AI-driven remediation workflows',
-          ' that automatically diagnose and resolve runtime errors',
-        ],
-        [
-          'Led a major product redesign',
-          ' using Material design and AG Charts with focus on visual excellence',
         ],
         [
           'Migrated 50+ repositories from Bitbucket to GitHub',
@@ -180,7 +190,7 @@ export const CV_DATA: CvData = {
     { label: 'Notice period', text: 'Available to start within one to two weeks' },
     {
       label: 'Employment type',
-      text: 'Providing services on an hourly basis. Please get in touch to discuss your project and engagement requirements.',
+      text: 'Contract engagements on an hourly basis, and open to full-time roles for the right opportunity. Please get in touch to discuss your project and engagement requirements.',
     },
     {
       label: 'Where',
@@ -254,9 +264,42 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
 ];
 
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      'A natural ability to bring colleagues together into a tight, focused team — and the determination to raise standards right across the group.',
+    author: 'CTO',
+    role: 'Rio AI',
+  },
+  {
+    quote:
+      'Smart, results-oriented, and fearless with new technologies — a perfect fit for R&D projects, with real leadership experience.',
+    author: 'Head of development',
+    role: 'SoftServe',
+  },
+  {
+    quote:
+      'An exemplary lead developer. Any team would be lucky to have him as their Tech Lead, Solutions Architect, or CTO.',
+    author: 'Senior developer',
+    role: 'Rio AI',
+  },
+  {
+    quote:
+      'Probably the most capable and responsive developer I have worked with — the kind who comes to the table with options rather than issues.',
+    author: 'Head of development',
+    role: 'Rio AI',
+  },
+  {
+    quote:
+      'Consistently delivered high-quality code and innovative solutions to complex problems — and upskilled himself in carbon accounting remarkably fast.',
+    author: 'Sustainability consultant',
+    role: 'Rio AI',
+  },
+];
+
 export const AVAIL_PREFS: AvailPref[] = [
   { label: 'Notice period', value: '~1–2 weeks' },
-  { label: 'Employment', value: 'Hourly basis · contract' },
+  { label: 'Employment', value: 'Contract (hourly) · open to full-time' },
   { label: 'Location', value: 'Remote · open to on-site' },
   { label: 'Clients', value: 'Digital products · Startups · Agencies · Enterprise' },
 ];
