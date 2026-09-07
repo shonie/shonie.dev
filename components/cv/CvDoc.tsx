@@ -93,8 +93,10 @@ function ContactRow({ icon, text, href, underline }: Contact) {
 }
 
 function Page1() {
-  const left = D.career.slice(0, 2);
-  const right = D.career.slice(2);
+  // The current role carries the most detail, so it gets the left column to
+  // itself; the more compact earlier roles stack down the right column.
+  const left = D.career.slice(0, 1);
+  const right = D.career.slice(1);
   return (
     <div className="cv-page" data-screen-label="CV page 1">
       <div className="cv-top">
