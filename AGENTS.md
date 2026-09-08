@@ -2,6 +2,14 @@
 
 Guidance for AI agents (and humans) working in this repo.
 
+## Contents
+
+- [Comments](#comments)
+- [Communication style](#communication-style)
+  - [Terminology](#terminology)
+  - [Tone](#tone)
+  - [Uncertainty](#uncertainty)
+
 ## Comments
 
 Add a comment **only** when the code is genuinely illogical or
