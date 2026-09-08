@@ -107,7 +107,7 @@
 }
 .cv-portrait {
   width: 200px;
-  height: 208px;
+  height: 232px;
   object-fit: cover;
   box-shadow: var(--shadow-photo);
 }
