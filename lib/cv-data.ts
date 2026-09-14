@@ -266,7 +266,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      'A natural ability to bring colleagues together into a tight, focused team — and the determination to raise standards right across the group.',
+      'Led the development and scaling of our platform to handle big data while delivering a smooth experience for our users — the team always feel they are in good hands.',
     author: 'CTO',
     role: 'Rio AI',
   },
@@ -292,6 +292,12 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       'Consistently delivered high-quality code and innovative solutions to complex problems — and upskilled himself in carbon accounting remarkably fast.',
     author: 'Sustainability consultant',
+    role: 'Rio AI',
+  },
+  {
+    quote:
+      'Capable of delivering very large, well-architected serverless solutions that support hugely complex SaaS products — always improving and at the forefront of modern development.',
+    author: 'Developer',
     role: 'Rio AI',
   },
 ];
